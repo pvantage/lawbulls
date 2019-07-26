@@ -22,7 +22,7 @@
 				
 	<plugin name="cordova-plugin-splashscreen" />
 	
-	<gap:plugin name="cordova-plugin-x-socialsharing" source="npm" />
+	<gap:plugin name="cordova-plugin-x-socialsharing" source="npm" version="5.4.0" />
 	
 	<feature name="SocialSharing">
   		<param name="ios-package" value="SocialSharing" />
