@@ -114,6 +114,10 @@ html {
     margin: 0;
     line-height: 0;
 }
+P {font-size:14px;color:#fff; }
+a {color:#fff;}
+li {color:#fff; font-size:14px;     padding: 5px 0;}
+ul, ol {padding-left:15px; margin-left:0px;}
 body {background:#3c3c3c;
  margin:0; padding:0;    
   font-family: 'Roboto';    
@@ -132,6 +136,10 @@ body {background:#3c3c3c;
 }
 .botom-content img {
     width: 100%;
+}
+.post_description {
+    clear: both;
+    padding-top: 10px;
 }
 .right-content-div {
     width: 49%;
@@ -235,20 +243,21 @@ ul.menu-social li {
     width: 100%;
     padding: 10px;
     border: 1px solid #fff;
-    font-size: 18px;
+    font-size: 16px;
     text-align: center;
-    height: 55px;
-    font-weight: bold;
+    height: 45px;
+    font-weight: 400;
 }
 .signinform input::placeholder { opacity:1; color:#000; }	
 
 .login-button button {
-    background: #2b2b2b;
-    border: 1px solid #2b2b2b;
+    background: #558066;
+    border: 1px solid #558066;
     color: #fff;
-    font-weight: 600;
-    font-size: 18px;
-    padding: 10px 20px; 
+    font-weight: 400;
+    font-size: 16px;
+    padding: 10px 0;
+    width: 142px;
 }
 /* Absolute Center Spinner */
 .loading {
@@ -273,12 +282,12 @@ ul.menu-social li {
   left: 0;
   width: 100%;
   height: 100%;
-    background-color: rgba(255,255,255,0.6);
+    background-color: rgba(255,255,255,0.8);
     z-index: -1;
 }
 .login-button a {
-    background: #2b2b2b;
-    border: 1px solid #2b2b2b;
+    background: #558066;
+    border: 1px solid #558066;
     color: #fff;
     font-weight: 600;
     font-size: 18px;
@@ -296,11 +305,12 @@ ul.menu-social li {
     color: #fff;
     width: 100%;
     border-radius: 3px;
-    padding: 15px 10px;
-    font-size: 18px;
-    font-weight: bold; position:relative;
+    padding: 10px 10px;
+    font-size: 17px;
+    font-weight: bold;
+    position: relative;
+    line-height: 26px;
 }
-
 .facebookbtn i {
     float: left!important;
     display: block;
@@ -309,22 +319,23 @@ ul.menu-social li {
 .facebookbtn i:after {
     content: "";
     position: absolute;
-    background: #1c6594;
+    background: #1B6447;
     height: 100%;
     width: 1px;
     top: 0;
-    margin-left: 29px;
+    margin-left: 23px;
 }
 .googlebtn {
     background: #c62d36;
     border: 1px solid #c62d36;
-    color: #fff;
+color: #fff;
     width: 100%;
     border-radius: 3px;
-    padding: 15px 10px;
-    font-size: 18px;
+    padding: 10px 10px;
+    font-size: 17px;
     font-weight: bold;
     position: relative;
+    line-height: 26px;
 	    margin-top: 10px;
     margin-bottom: 10px;
 }
@@ -337,23 +348,27 @@ ul.menu-social li {
 .googlebtn i:after {
     content: "";
     position: absolute;
-    background: #ba252a;
+    background: #b21e23;
     height: 100%;
     width: 1px;
     top: 0;
-    margin-left: 29px;
+    margin-left: 19px;
 }
+a:hover, a:focus {color:#fff;}
+button:focus {outline:none; box-shadow:none;}
 .signupdiv .signupbtn {
     background: #2b2b2b;
     border: 1px solid #2b2b2b;
-    color: #fff;  border-radius: 3px;
-    font-weight: 600; width:100%;
-    font-size: 18px;
-    padding: 15px 20px;
-	    display: block;
+    color: #fff;
+    border-radius: 3px;
+    font-weight: 400;
+    width: 100%;
+    font-size: 17px;
+    padding: 10px 20px;
+    display: block;
     text-align: center;
 }
-
+#account_register .signupdiv .signupbtn {background: #568066; border:1px solid #568066;}
 .signinform {
     max-width: 400px;
     margin: 40px auto;
@@ -392,8 +407,8 @@ ul.menu-social li {
 
 .paymentscreen h2 {
     color: #fff;
-    font-size: 25px;
-    padding: 10px 0;
+    font-size: 18px;
+    padding: 10px 15px;
     margin: 0;
 }
 .paymentscreen {
@@ -406,7 +421,7 @@ ul.menu-social li {
     display: inline-block;
     float: right;
     color: #558066;
-    font-size: 16px;
+    font-size: 14px;
     padding-top: 3px;
 }
 .vouchercodeoption {
@@ -437,12 +452,13 @@ ul.menu-social li {
     margin-top: 0;
 }
 .vouchercodeoption input {
-    background: #2b2b2b;
-    border: 1px solid #2b2b2b;
+    background: #558066;
+    border: 1px solid #558066;
     text-align: center;
     padding: 5px;
     font-weight: 600;
     font-size: 20px;
+    width: 190px;
 }
 .vouchercodeoption input::placeholder {opacity:1; color:#fff;}
 .vouchercodeoption input::-webkit-placeholder {opacity:1; color:#fff;}
@@ -460,8 +476,8 @@ ul.menu-social li {
 }
 .paymentoptions {
     background: #3c3c3c;
-    margin: 9px 0;
-    padding: 10px;     overflow: hidden;
+    margin: 10px 0 0;
+    padding: 10px 15px;     overflow: hidden;
 }
 .card-options {
     background: #3c3c3c;
@@ -493,13 +509,14 @@ ul.menu-social li {
     padding-right: 5px;
 }
 .payment-sucess img {
-    max-width: 280px;
+    max-width: 230px;
     margin: 0 auto;
     display: block;
 }
 .payment-sucess {
-    padding: 80px 0 0;
+    padding: 60px 15px 0;
     text-align: center;
+    width: 100%;
 }
 .payment-sucess h4 {
     color: #fff;
@@ -567,6 +584,7 @@ ul.menu-social li {
 .img_box {
     float: left;
     width: 35%;
+	margin-top: 20px;
 }
 .suggestions_list {
     border-top: none;
@@ -603,7 +621,10 @@ ul.menu-social li {
     color: #548066;
     border-bottom: #548066;
 }
-.content-box_recent p { color:#fff;}
+.content-box_recent p {
+    color: #fff;
+    margin-top: 9px;
+}
 .category-listing .pageFootItem {
     color: #fff;
     /* font-weight: 600; */
@@ -651,7 +672,13 @@ ul.share_button {
 }
 .post-title {
     color: #fff;
-    font-size: 20px;
+    font-size: 18px;
+    margin-bottom: 0px;
+    font-weight: 400;
+    line-height: 24px;
+}
+.post_description p {
+    margin-bottom: 0px;
 }
 .content-box p {
     color: #fff;
@@ -661,7 +688,7 @@ ul.share_button {
 
 .favourite-screen {
     clear: both;
-    padding-top: 20px;
+    padding-top: 5px;
 }
 .profile-info img {
     width: 80px;
@@ -687,8 +714,9 @@ nav.menu {
 span.casepro {
     background: #d40c31;
     color: #fff!Important;
-    padding: 5px 20px;
+    padding: 4px 15px;
     border-radius: 16px;
+    font-size: 14px!important;
 }
 .icon-list img {
     max-width: 25px;
@@ -730,7 +758,7 @@ span.casepro {
 }
 .case-finder label span {
     color: #fff;
-    font-weight: 400;
+    font-weight: 400; font-size: 14px;
 }
 .case-finder label em {
     color: #cf452f;
@@ -740,8 +768,8 @@ span.casepro {
     background: #558066;
     border: 1px solid #558066;
     color: #fff;
-    font-size: 18px;
-    padding: 12px;
+    font-size: 16px;
+    padding: 10px;
 }
 .buuton_divv button:last-child {
    float:right;
@@ -761,12 +789,13 @@ span.casepro {
 }
 .my-orderscreen {
     clear: both;
-    padding-top: 25px;
+    padding-top: 5px;
 }
 .dateof-order {
     color: #fff;
     text-align: right;
-    font-size: 14px;
+    font-size: 13px;
+    padding-bottom: 2px;
 }
 .order-status {
     float: left;
@@ -775,7 +804,7 @@ span.casepro {
     height: 150px;
     vertical-align: middle;
     text-align: center;
-
+    margin-top: 25px;
     font-weight: bold;
     display: table;
 }
@@ -801,6 +830,16 @@ span.casepro {
     flex-wrap: wrap;
     align-content: space-between;
 }
+
+.payment-screen  {
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-between;
+}
+
+
+
 .order-status h5 {
     vertical-align: middle;
     display: table-cell;
@@ -809,7 +848,10 @@ span.casepro {
     padding: 10px;
 }
 .go_on {
-    display: table;
+    display: table; width:100%;
+}
+.logo_right img {
+    width: 100%;
 }
 .sucessmmessage {
     padding: 15px 0;
@@ -845,7 +887,7 @@ a:focus, a:hover{text-decoration:none; box-shadow:none;}
     padding-right:5px;
 }
 .feedbackscreen {
-    padding-top: 35px;
+    padding-top: 25px;
 	    width: 100%;
 }
 .post_sharebutton:before {
@@ -879,8 +921,8 @@ a:focus, a:hover{text-decoration:none; box-shadow:none;}
     padding: 10px;
     background: #fff;
     border: 1px solid #fff;
-    font-size: 16px;
-    font-weight: 600;
+    font-size: 14px;
+    font-weight: 400;
 }
 .go_on input::placeholder { opacity:1; color:#000; }
 .go_on textarea::placeholder { opacity:1; color:#000; }
@@ -892,8 +934,8 @@ a:focus, a:hover{text-decoration:none; box-shadow:none;}
     padding: 10px;
     background: #fff;
     border: 1px solid #fff;
-    font-size: 16px;
-    font-weight: 600;
+    font-size: 14px;
+    font-weight: 400;
 	resize:none;
 }
 .feedbackbtn button {
@@ -918,13 +960,13 @@ a:focus, a:hover{text-decoration:none; box-shadow:none;}
     width: 76%;
     /* padding-left: 203px; */
     color: #fff;
-    font-size: 16px;
-    padding: 5px 0 0 15px;
+    font-size: 14px;
+    padding: 0px 0 0 15px;
 }
 .ordertimer {
     clear: both;
     padding-top: 10px;
-    color: #fff;
+    color: #fff; font-size:13px;
     /* font-weight: 600; */
 }
 .order-status span {
@@ -992,9 +1034,25 @@ a:focus, a:hover{text-decoration:none; box-shadow:none;}
 	
 	}
 	.swiper-pagination.swiper-pagination-clickable.swiper-pagination-bullets::-webkit-scrollbar{ display:none;}
-
+.search-screen .suggestions_list {
+    padding: 15px;
+    margin: 10px 0px;
+}
+@media (max-width:600px) {
+	.payment-sucess img {
+    max-width: 190px;
+}
+.order-status h5 {
+    font-size: 17px;}
+	}
 @media (max-width:400px) {
+.feedbackscreen h6 {
+    font-size: 15px;
+}
 	
+	.payment-sucess h4 {
+    font-size: 32px;
+}
 	.bottom-imagediv {
     height: 138px;}
 	.mobile-menu img {
@@ -1020,6 +1078,12 @@ a:focus, a:hover{text-decoration:none; box-shadow:none;}
 }
 .order-status span {
     font-size: 15px;
+}
+.search-list li a {
+    font-size: 14px;
+}
+.search-list li {
+    padding: 0 2px 0 0;
 }
 	}
 

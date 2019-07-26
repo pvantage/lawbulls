@@ -201,13 +201,7 @@ function postdetail(post_id){
    });
 }
 
-function shareposturl(post_url){		
-		
-	/*var message = 'I\'m riding in a Clap Me cab!' + "\n";
-		message+= 'Track my ride here. http://www.vantagewebtech.com/clapme/tripinfo?token='+token + '&sid='+ sid + "\n";
-		message += 'Haven\'t tried Clap Me yet?' + "\n";
-		message += 'Download the app at www.clapme.lk';*/
-	
-	//window.plugins.socialsharing.share(message);	
+function shareposturl(message_txt, post_url){		 	
+	window.plugins.socialsharing.share(message_txt);	
 	share(null,'ETA Sharing',null, post_url);	  	
 }
