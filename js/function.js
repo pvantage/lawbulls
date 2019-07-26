@@ -205,5 +205,5 @@ function shareposturl(message_txt, post_url){
 	//window.plugins.socialsharing.share(message_txt);	
 	//share(null,'ETA Sharing',null, post_url);	
 	
-	window.plugins.socialsharing.share(null, 'LawBull', post_url);  	
+	window.plugins.socialsharing.share(post_url);  	
 }
