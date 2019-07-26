@@ -201,9 +201,6 @@ function postdetail(post_id){
    });
 }
 
-function shareposturl(message_txt, post_url){		 	
-	//window.plugins.socialsharing.share(message_txt);	
-	//share(null,'ETA Sharing',null, post_url);	
-	
+function shareposturl(post_url){	
 	window.plugins.socialsharing.share(post_url);  	
 }
