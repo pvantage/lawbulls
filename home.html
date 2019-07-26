@@ -72,15 +72,10 @@
 			 success: function(data){			 	 		 		 
 					
 			$('#swiper_post_data').html(data['content']);
-					
-			//console.log(data['category']);		
-					
 			var menu = data['category'];
-			/*['Top Stories', 'News updates', 'Columns', 'Interviews', 'Foreign/ International', 'RTI', 'Law school corner', 'Lawers & law firms', 'Environment'] */
-			
-        var mySwiper = new Swiper('.swiper-container', {
-            autoHeight: true, 
-           
+						
+            var mySwiper = new Swiper('.swiper-container', {
+            autoHeight: true,            
             pagination: {
                 el: '.swiper-pagination',
                 clickable: true,
@@ -89,19 +84,24 @@
                 },
             },
 
-        });
-					
-				AOS.init();	
-					
-					
-					$('#loader').remove();
-						
+        });		
+					AOS.init();					
+					$('#loader').remove();						
 			 }
 		   });
-		}
-
-	
-        postdetail();
+	}
+			
+postdetail();
+		
+$(document).mouseup(function(e){
+    var container = $(".close-button");
+   
+    if(!container.is(e.target) && container.has(e.target).length === 0){
+        //container.hide();
+		//console.log('click out side');
+		//bonzo().hide();
+    }
+});	
 </script>
     
     
