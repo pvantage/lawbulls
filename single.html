@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+   <head>     
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">     
+      <link rel="stylesheet" href="css/bootstrap.min.css">
+      <link rel="stylesheet" href="css/style.css?v=1">
+      <link rel="stylesheet" href="css/font-awesome.min.css">
+      <link rel="stylesheet" type="text/css" href="css/menu_sideslide.css" />
+      <link rel="stylesheet" type="text/css" href="css/normalize.css" />
+      <title>Law Bulls</title>
+      <script src="js/jquery.js"></script>
+		<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+        <script src="js/popper.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="js/function.js"></script>
+        <script type="text/javascript">
+            checkLogin();
+        </script>
+   </head>
+   <body>
+      <div class="top-header">
+         <div class="container">
+            <div class="menu-items">
+               <div class="mobile-menu">
+                  <img src="images/hamburger-icon.png" alt="" id="open-button" />
+               </div>
+               
+               
+               <div class="menu-wrap" id="nav_menu_list"></div>
+               
+               
+               <div class="logo-div">
+                  <img src="images/applogo.png" alt="" />
+               </div>
+               <div class="search-div">
+                    <a href="searchscreen.html"> <img src="images/searchicon.png" alt="" /></a>
+               </div>
+            </div>
+         </div>
+      </div>
+    <div class="post-detailpage">
+     <div class="container" id="load_post"></div>
+    </div>
+    
+    <div class="loading" id="loader"><img src="images/loader_img.gif" alt="Please wait" /></div>      
+   </body>
+ <script src="js/classie.js"></script>
+<script src="js/main.js"></script>
+  
+<script type="text/javascript">
+create_nav();
+ 	postdetail(gup('post_id'));
+</script>  
+</html>

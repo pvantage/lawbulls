@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css?v=1">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/menu_sideslide.css" />
+    <link rel="stylesheet" type="text/css" href="css/normalize.css" />
+    <link href="css/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <script src="js/jquery.js"></script>
+    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+    <script src="js/popper.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/function.js"></script>
+    <script type="text/javascript">
+		checkLogin();
+	</script>
+    <title>Law Bulls</title>
+</head>
+
+<body>
+    <div class="top-header">
+        <div class="container">
+            <div class="menu-items">
+                <div class="mobile-menu">
+                    <img src="images/hamburger-icon.png" alt="" id="open-button" />
+                </div>
+                <div class="menu-wrap" id="nav_menu_list"></div>
+                
+                <div class="logo-div">
+                    <img src="images/applogo.png" alt="" />
+                </div>
+                <div class="search-div">
+                    <a href="searchscreen.html"> <img src="images/searchicon.png" alt="" /></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    <div class="category-listing">
+        <div class="swiper-pagination" style="position:relative; bottom:0px;"></div>
+        
+        
+        <div class="swiper-container">
+
+            <div class="swiper-wrapper" id="swiper_post_data"></div>
+        </div>
+    </div>
+    <div class="loading" id="loader"><img src="images/loader_img.gif" alt="Please wait" /></div>
+    <script src="js/classie.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/swiper.min.js"></script>
+    <script src="js/aos.js"></script>
+    <script type="text/javascript">
+		create_nav();
+		
+		
+		// post lists
+
+		function postdetail(){
+			var action_url = siteurl + 'posts.php';	
+			$.ajax({
+			 type: 'POST',
+			 url: action_url,
+			 dataType: 'json',
+			 data: {post_action : 'posts'},
+			 crossDomain: true,
+			 success: function(data){			 	 		 		 
+					
+			$('#swiper_post_data').html(data['content']);
+					
+			//console.log(data['category']);		
+					
+			var menu = data['category'];
+			/*['Top Stories', 'News updates', 'Columns', 'Interviews', 'Foreign/ International', 'RTI', 'Law school corner', 'Lawers & law firms', 'Environment'] */
+			
+        var mySwiper = new Swiper('.swiper-container', {
+            autoHeight: true, 
+           
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+                renderBullet: function(index, className) {
+                    return '<span class="' + className + '">' + (menu[index]) + '</span>';
+                },
+            },
+
+        });
+					
+				AOS.init();	
+					
+					
+					$('#loader').remove();
+						
+			 }
+		   });
+		}
+
+	
+        postdetail();
+</script>
+    
+    
+</body>
+
+</html>
