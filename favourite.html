@@ -1,15 +1,18 @@
 <!doctype html>
 <html lang="en">
-   <head>     
+   <head>
+      <!-- Required meta tags -->
       <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">     
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <!-- Bootstrap CSS -->
       <link rel="stylesheet" href="css/bootstrap.min.css">
       <link rel="stylesheet" href="css/style.css?v=1">
       <link rel="stylesheet" href="css/font-awesome.min.css">
       <link rel="stylesheet" type="text/css" href="css/menu_sideslide.css" />
       <link rel="stylesheet" type="text/css" href="css/normalize.css" />
+      <link href="css/aos.css" rel="stylesheet">
       <title>Law Bulls</title>
-      <script src="js/jquery.js"></script>
+        <script src="js/jquery.js"></script>
 		<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
         <script src="js/popper.js"></script>
         <script src="js/bootstrap.min.js"></script>
@@ -26,31 +29,28 @@
                   <img src="images/hamburger-icon.png" alt="" id="open-button" />
                </div>
                
-               
-               <div class="menu-wrap" id="nav_menu_list"></div>
-               
+               <div class="menu-wrap" id="nav_menu_list"></div>               
                
                <div class="logo-div">
-                  <a href="home.html"><img src="images/applogo.png" alt="Law bulls" /></a>
+                  <a href="home.html"><img src="images/applogo.png" alt="Law Bulls" /></a>
                </div>
                <div class="search-div">
                     <a href="search.html"> <img src="images/searchicon.png" alt="" /></a>
                </div>
-            </div>
+            </div>           
+            
+            <div class="suggestions favourite-screen" id="favorite"></div>
          </div>
-      </div>
-    <div class="post-detailpage">
-     <div class="container" id="load_post"></div>
-    </div>
-    
-    <div class="related_post"></div>
-    <div class="loading" id="loader"><img src="images/loader_img.gif" alt="Please wait" /></div>      
-   </body>
- <script src="js/classie.js"></script>
+</div> 
+
+<div class="loading" id="loader"><img src="images/loader_img.gif" alt="Please wait" /></div> 
+<script src="js/classie.js"></script>
 <script src="js/main.js"></script>
-  
+<script src="js/aos.js"></script>  
 <script type="text/javascript">
 create_nav();
- 	postdetail(gup('post_id'));
-</script>  
+my_favorite();
+AOS.init();
+</script>
+   </body>
 </html>

@@ -34,7 +34,7 @@
                     <img src="images/applogo.png" alt="" />
                 </div>
                 <div class="search-div">
-                    <a href="searchscreen.html"> <img src="images/searchicon.png" alt="" /></a>
+                    <a href="search.html"> <img src="images/searchicon.png" alt="" /></a>
                 </div>
             </div>
         </div>
@@ -49,15 +49,16 @@
 
             <div class="swiper-wrapper" id="swiper_post_data"></div>
         </div>
-    </div>
-    <div class="loading" id="loader"><img src="images/loader_img.gif" alt="Please wait" /></div>
+</div>
+
+<div id="show_fav_message" style="display:none;"></div>
+<div class="loading" id="loader"><img src="images/loader_img.gif" alt="Please wait" /></div>
     <script src="js/classie.js"></script>
     <script src="js/main.js"></script>
     <script src="js/swiper.min.js"></script>
     <script src="js/aos.js"></script>
     <script type="text/javascript">
-		create_nav();
-		
+		create_nav();		
 		
 		// post lists
 
@@ -67,7 +68,7 @@
 			 type: 'POST',
 			 url: action_url,
 			 dataType: 'json',
-			 data: {post_action : 'posts'},
+			 data: {post_action:'posts',user_id:localStorage.getItem("login_id")},
 			 crossDomain: true,
 			 success: function(data){			 	 		 		 
 					
@@ -84,27 +85,13 @@
                 },
             },
 
-        });		
-					AOS.init();					
-					$('#loader').remove();						
-			 }
-		   });
-	}
-			
+        });
+					AOS.init();
+					$('#loader').remove();
+		}
+	});
+}
 postdetail();
-		
-$(document).mouseup(function(e){
-    var container = $(".close-button");
-   
-    if(!container.is(e.target) && container.has(e.target).length === 0){
-        //container.hide();
-		//console.log('click out side');
-		//bonzo().hide();
-    }
-});	
-</script>
-    
-    
+</script>    
 </body>
-
 </html>

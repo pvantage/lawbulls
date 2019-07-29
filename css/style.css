@@ -231,6 +231,9 @@ ul.menu-social li {
 .search-div img {
     max-width: 55px;
 }
+span.swiper-pagination-bullet.swiper-pagination-bullet-active:focus {
+    outline: none;
+}
 .bottom-imagediv {
     background: url(../images/bottombackgroundimg.png);
     height: 181px;
@@ -257,7 +260,7 @@ ul.menu-social li {
     font-weight: 400;
     font-size: 16px;
     padding: 10px 0;
-    width: 142px;
+    width: 160px;
 }
 /* Absolute Center Spinner */
 .loading {
@@ -284,6 +287,10 @@ ul.menu-social li {
   height: 100%;
     background-color: rgba(255,255,255,0.8);
     z-index: -1;
+}
+input:focus {outline:none;}
+body .focus-input {
+    box-shadow: -1px -1px 21px rgba(0, 0, 0, 0.5);
 }
 .login-button a {
     background: #558066;
@@ -367,6 +374,7 @@ button:focus {outline:none; box-shadow:none;}
     padding: 10px 20px;
     display: block;
     text-align: center;
+	    height: 45px;
 }
 #account_register .signupdiv .signupbtn {background: #568066; border:1px solid #568066;}
 .signinform {
@@ -402,7 +410,7 @@ button:focus {outline:none; box-shadow:none;}
     background: #2f2a28;
     color: #558066;
     font-size: 14px;
-    padding: 4px 10px;
+    padding: 4px 10px;     margin-right: -15px;
 }
 
 .paymentscreen h2 {
@@ -433,7 +441,7 @@ button:focus {outline:none; box-shadow:none;}
 }
 .imgdiv {
     color: #558066;
-    font-size: 14px;
+    font-size: 11px;
 }
 .walletsdiv .paymentoptions:nth-child(3) .imgdiv img {
     max-width: 40px;
@@ -452,12 +460,12 @@ button:focus {outline:none; box-shadow:none;}
     margin-top: 0;
 }
 .vouchercodeoption input {
-    background: #558066;
-    border: 1px solid #558066;
+    background: #2b2b2b;
+    border: 1px solid #2b2b2b;
     text-align: center;
     padding: 5px;
-    font-weight: 600;
-    font-size: 20px;
+    font-weight: 400;
+    font-size: 17px;
     width: 190px;
 }
 .vouchercodeoption input::placeholder {opacity:1; color:#fff;}
@@ -520,23 +528,45 @@ button:focus {outline:none; box-shadow:none;}
 }
 .payment-sucess h4 {
     color: #fff;
-    font-size: 35px;
+    font-size: 26px;
     padding: 20px 0 0;
 }
 .payment-sucess p {
     color: #fff;
-    font-size: 20px;
+    font-size: 17px;
   
 }
+div#show_fav_message {
+    position: fixed;
+    bottom: 30px;
+    background: #548066;
+    color: #fff;
+    z-index: 9;
+    margin: 0 20px;
+    padding: 8px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+}
+.recent_post .img_box {
+    margin-top: 0px;
+}
+.recent_post h2 {
+    color: #fff;
+    font-size: 22px;
+}
 .top-search input {
-    width: 95%;
+    width: 100%;
     display: block;
     margin: 0 auto;
     background: #fff;
     border: 1px solid #fff;
     padding: 10px;
-    font-weight: 600;
-    font-size: 20px;
+    font-weight: 400;
+    font-size: 17px;
+    color: #548066;
+}
+.search-screen .img_box {
+    margin-top: 0;
 }
 .top-search input::placeholder {
    color:#558066; opacity:1;
@@ -730,28 +760,27 @@ span.casepro {
     font-size: 16px;
 }
 .case-finder label {
-    float: right;
-    color: #558066;
+    color: #558066; 
     text-align: left;
-    width: 37%;
+    width: 100%;
     font-size: 17px;
     font-weight: 600;
 }
 .case-finder input {
-    width: 60%;
+    width: 100%;
     background: #fff;
     padding: 10px;
     border: 1px solid #fff;
 }
 .case-finder textarea {
-    width: 60%;
+    width: 100%;
     background: #fff;
     padding: 10px;
     border: 1px solid #fff;
 	resize:none;
 }
 .case-finder select {
-    width: 60%;
+    width: 100%;
     background: #fff;
     padding: 10px;
     border: 1px solid #fff;
@@ -924,6 +953,16 @@ a:focus, a:hover{text-decoration:none; box-shadow:none;}
     font-size: 14px;
     font-weight: 400;
 }
+.related_post .img_box {
+    margin-top: 0px;
+}
+.related_post .suggestions_list {
+    margin: 10px 0px;
+}
+.related_post h2 {
+    color: #fff;
+    font-size: 22px;
+}
 .go_on input::placeholder { opacity:1; color:#000; }
 .go_on textarea::placeholder { opacity:1; color:#000; }
 .go_on input::-webkit-placeholder { opacity:1; color:#000; }
@@ -983,7 +1022,8 @@ a:focus, a:hover{text-decoration:none; box-shadow:none;}
 
 .swiper-pagination-bullet-active {
     color: #548066!important;
-    border-bottom: 2px solid #548066!important;     font-weight: 600;
+    border-bottom: 2px solid #548066!important;    
+	 font-weight: 600;
 }
 
     .swiper-slide {
@@ -1049,9 +1089,11 @@ a:focus, a:hover{text-decoration:none; box-shadow:none;}
 .feedbackscreen h6 {
     font-size: 15px;
 }
-	
+.login-button button {
+    width: 142px;
+}	
 	.payment-sucess h4 {
-    font-size: 32px;
+    font-size: 24px;
 }
 	.bottom-imagediv {
     height: 138px;}

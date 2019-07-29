@@ -1,16 +1,22 @@
 <!doctype html>
 <html lang="en">
-   <head>
-      <!-- Required meta tags -->
+   <head>      
       <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-      <!-- Bootstrap CSS -->
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">      
       <link rel="stylesheet" href="css/bootstrap.min.css">
       <link rel="stylesheet" href="css/style.css?v=1">
       <link rel="stylesheet" href="css/font-awesome.min.css">
       <link rel="stylesheet" type="text/css" href="css/menu_sideslide.css" />
       <link rel="stylesheet" type="text/css" href="css/normalize.css" />
       <title>Law Bulls</title>
+      <script src="js/jquery.js"></script>
+		<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+        <script src="js/popper.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="js/function.js"></script>
+        <script type="text/javascript">
+            checkLogin();
+        </script>
    </head>
    <body>
       <div class="top-header">
@@ -19,39 +25,11 @@
                <div class="mobile-menu">
                   <img src="images/hamburger-icon.png" alt="" id="open-button" />
                </div>
-               <div class="menu-wrap">
-                  <div class="profile-info">
-                     <img src="images/FakeDP.jpeg" alt="" />
-                     <span class="username">Username</span>
-                  </div>
-                  <nav class="menu">
-                     <div class="icon-list">   
-                        <a href="index.html"><img src="images/home.png" alt="" /><span>Home</span></a>
-                        <a href="casefinder.html"><img src="images/hammer_icon.png" alt="" /><span>Case finder <span class="casepro">Pro</span></span></a>
-                        <a href="favouritescreen.html"><img src="images/favourite_icon.png" alt="" /><span>Favorites</span></a>
-                        <a href="myorderscreen.html"><img src="images/order_icon.png" alt="" /><span>My Orders</span></a>
-                        <a href="previous-orderscreen.html"><img src="images/order_icon2.png" alt="" /><span>Previous Orders</span></a>
-                        <a href="feedbackscreen.html"><img src="images/feedback.png" alt="" /><span>Feedback</span></a>
-                        <a href="#"><img src="images/terms_icon.png" alt="" /><span>Terms & conditions</span></a>
-                        <a href="#"><img src="images/about_icon.png" alt="" /><span>About Us</span></a>
-                     </div>
-                  </nav>
-                  <div class="menu-footer">
-                     <div class="float-left">
-                        <a href="#">Sign Out</a>
-                     </div>
-                     <div class="float-right">
-                        <ul class="menu-social">
-                           <li><a href="#" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                           <li><a href="#" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                           <li><a href="#" target="_blank"><i class="fa fa-snapchat-ghost" aria-hidden="true"></i></a></li>
-                        </ul>
-                     </div>
-                  </div>
-                  <button class="close-button" id="close-button">Close Menu</button>
-               </div>
+               
+               <div class="menu-wrap" id="nav_menu_list"></div>
+               
                <div class="logo-div">
-                  <img src="images/applogo.png" alt="" />
+                  <a href="home.html"><img src="images/applogo.png" alt="Law Bulls" /></a>
                </div>
                <div class="search-div">
                    <a href="searchscreen.html"> <img src="images/searchicon.png" alt="" /></a>
@@ -65,55 +43,45 @@
                <p>It is necessary to fill the fields marked as *.</p>
                <div class="form-group">
                   <label>Case Type <em>*</em></label>
-                  <select>
-                     <option>Civil matter</option>
-                     <option>Criminal matter</option>
-                     <option>Family Matter</option>
-                     <option>Arbitration matter</option>
-                     <option>Matrimonial matter</option>
-                     <option>Service matter</option>
-                     <option>Labour matter</option>
-                     <option>Contractual matter</option>
-                     <option>Constitutional matter</option>
-                     <option>Other matte</option>
+                  <select name="case_type" id="case_type">
+                     <option value="">-- Please select --</option>
                   </select>
                </div>
                <div class="form-group">
                   <label>Date Range</label>
-                  <input type="date" /> 
+                  <input type="text" data-mask="00/00/0000" name="date_range" id="date_range" placeholder="Please enter date (mm/dd/yyyy)"/> 
                </div>
                <div class="form-group">
                   <label>Choose Plan <em>*</em></label>
-                  <select>
-                     <option>Basic Rs 50 24-48 hrs</option>
-                     <option>Standard Rs 100 12-24 hrs</option>
-                      <option>Express Rs 200 6-12 hrs</option>
+                  <select name="case_plan" id="case_plan">
+                     <option value="">-- Please select --</option>                    
                   </select>
                </div>
                <div class="form-group">
                   <label>Query <em>*</em> <span>(The legal proposition you're looking for)</span> </label>
-                  <textarea></textarea>
+                  <textarea name="case_question" id="case_question"></textarea>
                </div>
                <div class="form-group commentsdiv">
                   <label>Comments, if any 
                   <span>(Please provide a brief outlook of the case for more accuracy and better results)</span></label>
-                  <textarea></textarea>
+                  <textarea name="case_comments" id="case_comments"></textarea>
                </div>
                <div class="buuton_divv">
                   <button class="button">Submit & Pay</button>
-                  <button class="button">Clear the form</button>
+                  <button class="button" onClick="clearForm();">Clear the form</button>
                </div>
             </form>
          </div>
-         
-      </div>
-      <div class="botom-imgwithlongcontent">
-            <img src="images/bottombackgroundimg.png" alt="" />
-         </div>
-      <script src="js/jquery.js"></script>
-      <script src="js/popper.js"></script>
-      <script src="js/bootstrap.min.js"></script>
-      <script src="js/classie.js"></script>
-      <script src="js/main.js"></script>
+    </div>
+ <div class="botom-imgwithlongcontent">
+    <img src="images/bottombackgroundimg.png" alt="">
+</div>
+<script src="js/classie.js"></script>
+<script src="js/main.js"></script>
+<script src="js/jquery.mask.js"></script>
+<script type="text/javascript">
+create_nav();
+getPlans(); 
+</script>
    </body>
 </html>

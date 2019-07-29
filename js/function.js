@@ -156,23 +156,23 @@ function create_nav(){
 	menu_links += '<a href="home.html"><img src="images/home.png" alt="Home" /><span>Home</span></a>';
 	
 if(localStorage.getItem("login_id") != null){
-	menu_links += '<a href="casefinder.html"><img src="images/hammer_icon.png" alt="" /><span>Case finder <span class="casepro">Pro</span></span></a>';
- menu_links += '<a href="favouritescreen.html"><img src="images/favourite_icon.png" alt="" /><span>Favorites</span></a>';
- menu_links += '<a href="myorderscreen.html"><img src="images/order_icon.png" alt="" /><span>My Orders</span></a>';
- menu_links += '<a href="previous-orderscreen.html"><img src="images/order_icon2.png" alt="" /><span>Previous Orders</span></a>';
+	menu_links += '<a href="casefinder.html"><img src="images/hammer_icon.png" alt="Case finder"><span>Case finder <span class="casepro">Pro</span></span></a>';
+ menu_links += '<a href="favourite.html"><img src="images/favourite_icon.png" alt="Favorites"><span>Favorites</span></a>';
+ menu_links += '<a href="myorder.html"><img src="images/order_icon.png" alt="My Orders"><span>My Orders</span></a>';
+ menu_links += '<a href="previous-order.html"><img src="images/order_icon2.png" alt="Previous Orders"><span>Previous Orders</span></a>';
 }
  
- menu_links += '<a href="feedbackscreen.html"><img src="images/feedback.png" alt="" /><span>Feedback</span></a>';
- menu_links += '<a href="#"><img src="images/terms_icon.png" alt="" /><span>Terms & conditions</span></a>';
- menu_links += '<a href="#"><img src="images/about_icon.png" alt="" /><span>About Us</span></a>';
+ menu_links += '<a href="feedback.html"><img src="images/feedback.png" alt="Feedback"><span>Feedback</span></a>';
+ menu_links += '<a href="#"><img src="images/terms_icon.png" alt="Terms & conditions"><span>Terms & conditions</span></a>';
+ menu_links += '<a href="#"><img src="images/about_icon.png" alt="About Us"><span>About Us</span></a>';
  menu_links += '</div>';
  menu_links += '</nav>';
  menu_links += '<div class="menu-footer">';
  menu_links += '<div class="float-left"><a href="javascript:void(0);" onclick="logOut();">Sign Out</a></div>';
  menu_links += '<div class="float-right">';
  menu_links += '<ul class="menu-social">';
- menu_links += '<li><a href="#" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>';
- menu_links += '<li><a href="#" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>';
+ menu_links += '<li><a href="https://www.facebook.com/LawBullsIndia" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>';
+ menu_links += '<li><a href="https://www.instagram.com/lawbulls" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>';
  menu_links += '<li><a href="#" target="_blank"><i class="fa fa-snapchat-ghost" aria-hidden="true"></i></a></li>';
  menu_links += '</ul>';
  menu_links += '</div>';
@@ -190,11 +190,12 @@ function postdetail(post_id){
 	 type: 'POST',
 	 url: action_url,
 	 dataType: 'json',
-	 data: {post_id : post_id},
+	 data: {post_id:post_id, getaction:'show_post'},
 	 crossDomain: true,
 	 success: function(data){	 		 		 
 	   	if(data['content']){			
 			$('#load_post').html(data['content']);
+			$('.related_post').html(data['related']);
 			$('#loader').remove();
 		}		
 	 }
@@ -203,4 +204,126 @@ function postdetail(post_id){
 
 function shareposturl(post_url){	
 	window.plugins.socialsharing.share(post_url);  	
+}
+
+// add favorite
+
+function removeFav(post_id){
+	var action_url = siteurl + 'getcontent.php';	
+	$.ajax({
+	 type: 'POST',
+	 url: action_url,
+	 dataType: 'json',
+	 data: {post_id:post_id, getaction: 'remove_fav', user_id: localStorage.getItem("login_id")},
+	 crossDomain: true,
+	 success: function(data){	 		 		 
+	  
+	  if(data['msg']){
+		  
+		$('#img-'+post_id).attr('src', 'images/favourite.png');
+		$('#img-'+post_id).attr("onclick", 'addFav("'+post_id+'", "img-'+post_id+'")');     	
+				
+		$('#show_fav_message').html(data['msg']);		
+		$('#show_fav_message').show();
+		
+		setTimeout(function(){ 
+			$('#show_fav_message').hide();
+		
+		 }, 4000);
+		 
+	 }
+	 }
+   });
+}
+
+// remove favorite
+
+function addFav(post_id){
+	var action_url = siteurl + 'getcontent.php';	
+	$.ajax({
+	 type: 'POST',
+	 url: action_url,
+	 dataType: 'json',
+	 data: {post_id : post_id, getaction: 'add_fav', user_id: localStorage.getItem("login_id")},
+	 crossDomain: true,
+	 success: function(data){	 		 		 
+	   
+	   if(data['msg']){
+		   
+		 $('#img-'+post_id).attr('src', 'images/selected-favourite.png');
+		 $('#img-'+post_id).attr("onclick", 'removeFav("'+post_id+'", "img-'+post_id+'")'); 
+		   			
+		$('#show_fav_message').html(data['msg']);		
+		$('#show_fav_message').show();
+		
+		setTimeout(function(){ 
+			$('#show_fav_message').hide();
+		
+		 }, 4000);
+		 
+	   }
+		 
+	 }
+   });
+}
+
+
+// My Favorites posts
+
+function my_favorite(){
+	var action_url = siteurl + 'favorite.php';	
+	$.ajax({
+	 type: 'POST',
+	 url: action_url,
+	 dataType: 'json',
+	 data: {user_id:localStorage.getItem("login_id"), filter_action:'favorite'},
+	 crossDomain: true,
+	 success: function(data){  
+	  	if(data['content']){
+			$('#favorite').html(data['content']);
+			$('#loader').remove();	
+		}
+	 }
+   });
+}
+
+
+// REMOVE Favorite posts
+
+function removefavList(post_id){
+	var action_url = siteurl + 'favorite.php';	
+	$.ajax({
+	 type: 'POST',
+	 url: action_url,
+	 dataType: 'json',
+	 data: {user_id:localStorage.getItem("login_id"),post_id:post_id, filter_action:'delete_fav'},
+	 crossDomain: true,
+	 success: function(data){  
+	  	if(data['post_id']){
+			$('#fav_post_'+data['post_id']).remove();				
+		}
+	 }
+   });
+}
+
+// GET Case Plan & case category
+
+function getPlans(post_id){
+	var action_url = siteurl + 'case_finders.php';	
+	$.ajax({
+	 type: 'POST',
+	 url: action_url,
+	 dataType: 'json',
+	 data: {user_id:localStorage.getItem("login_id"),post_action:'case_category'},
+	 crossDomain: true,
+	 success: function(data){  
+	  	if(data['case_category']){
+			$('#case_type').html(data['case_category']);				
+		}
+		
+		if(data['case_plan']){
+			$('#case_plan').html(data['case_plan']);				
+		}
+	 }
+   });
 }
