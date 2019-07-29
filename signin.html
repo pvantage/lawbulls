@@ -2,9 +2,7 @@
 <html lang="en">
  <head>      
   <meta charset="utf-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-   <meta name="google-signin-scope" content="profile email">
-    <meta name="google-signin-client_id" content="605980070191-km9p6bgoto3maltkl8vnfa91rooiac64.apps.googleusercontent.com">
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">   
      <link rel="stylesheet" href="css/bootstrap.min.css">
      <link rel="stylesheet" href="css/style.css?v=1">
      <link rel="stylesheet" href="css/font-awesome.min.css">
@@ -14,7 +12,6 @@
     <script type="text/javascript" charset="utf-8" src="cordova.js"></script>   
     <script src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/function.js"></script>    
-    <script src="//apis.google.com/js/platform.js" async defer></script>
       <title>Law Bulls</title>
    </head>
    <body>
@@ -48,9 +45,9 @@
         <div class="loginwithsocial">
          <button class="button facebookbtn" type="button"><i class="fa fa-facebook" aria-hidden="true"></i> Log in with facebook</button>
          
-         <!--<button class="button googlebtn" type="button"><i class="fa fa-google" aria-hidden="true"></i> Log in with google </button>-->
-         <div class="g-signin2" data-width="300" data-onsuccess="onSignIn" data-theme="dark"></div>
-         
+        <button class="button googlebtn" id="google_login" type="button" onClick="callGoogle();"><i class="fa fa-google" aria-hidden="true"></i> Log in with google </button>
+        
+         <p>My Name will come here: <span id="get_name"></span></p>
         </div>
         <div class="signupdiv">
            <a class="button signupbtn" href="signup.html">Sign Up</a>
@@ -62,19 +59,21 @@
          </div>
        </div>
    </body>
- <script>
-      function onSignIn(googleUser) {       
-        var profile = googleUser.getBasicProfile();
-		alert(profile.getName());
-        /*console.log("ID: " + profile.getId());
-        console.log('Full Name: ' + profile.getName());
-        console.log('Given Name: ' + profile.getGivenName());
-        console.log('Family Name: ' + profile.getFamilyName());
-        console.log("Image URL: " + profile.getImageUrl());
-        console.log("Email: " + profile.getEmail());
-        var id_token = googleUser.getAuthResponse().id_token;
-        console.log("ID Token: " + id_token);*/
-      }
-    </script>  
-  
+ <script type="text/javascript" src="js/google_signin.js"></script> 
+ <script type="text/javascript">
+/*$(document).ready(function() {   	
+    $('#google_login').on('click', function() {
+        googleapi.authorize({
+            client_id: '605980070191-3t7uic9eip9am3tmj2u4pbv9bcmgje0m.apps.googleusercontent.com',
+            client_secret: 'IZTa7SIvYVz8kcFiirdgi2A5',
+            redirect_uri: 'http://localhost/lawbulls/apphtml/signin.html',
+            scope: 'https://www.googleapis.com/auth/analytics.readonly'
+        }).done(function(data) {
+            console.log(data.name);
+        }).fail(function(data) {
+            console.log('Error');
+        });
+    });
+});*/
+ </script> 
 </html>
