@@ -45,7 +45,7 @@
         <div class="loginwithsocial">
          <button class="button facebookbtn" type="button"><i class="fa fa-facebook" aria-hidden="true"></i> Log in with facebook</button>
          
-        <button class="button googlebtn" id="google_login" type="button" onClick="callGoogle();"><i class="fa fa-google" aria-hidden="true"></i> Log in with google </button>
+        <button class="button googlebtn" id="google_login" type="button" onClick="loginNow();"><i class="fa fa-google" aria-hidden="true"></i> Log in with google </button>
         
          <p>My Name will come here: <span id="get_name"></span></p>
         </div>
@@ -61,6 +61,22 @@
    </body>
  <script type="text/javascript" src="js/google_signin.js"></script> 
  <script type="text/javascript">
+ function loginNow(){
+ window.plugins.googleplus.login(
+    {
+      'scopes': '... ', 
+    },
+    function (obj) {
+      alert(JSON.stringify(obj)); // do something useful instead of alerting
+    },
+    function (msg) {
+      alert('error: ' + msg);
+    }
+);
+
+ }
+
+
 /*$(document).ready(function() {   	
     $('#google_login').on('click', function() {
         googleapi.authorize({

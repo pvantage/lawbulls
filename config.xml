@@ -30,7 +30,11 @@
 
 	<feature name="SocialSharing">
 	  <param name="android-package" value="nl.xservices.plugins.SocialSharing" />
-	</feature>	
+	</feature>
+	
+	<gap:plugin name="cordova-plugin-googleplus" source="npm">
+  		<param name="REVERSED_CLIENT_ID" value="605980070191-h41pio74e2bi8b8gj1df8qose4hvp5kd.apps.googleusercontent.com" />
+	</gap:plugin>	
 		
 	<icon src="icon.png" />
 	<icon gap:platform="webos" src="res/icon/ios/Icon-180.png" />
