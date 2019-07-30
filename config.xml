@@ -40,6 +40,10 @@
         <param name="APP_ID" value="470699603728461" />
         <param name="APP_NAME" value="Lawbulls" />
     </plugin>	
+	
+	<platform name="android">
+    	<preference name="android-minSdkVersion" value="16" />
+	</platform>
 		
 	<icon src="icon.png" />
 	<icon gap:platform="webos" src="res/icon/ios/Icon-180.png" />
