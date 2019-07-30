@@ -11,7 +11,13 @@
     <script src="js/jquery.js"></script>
     <script type="text/javascript" charset="utf-8" src="cordova.js"></script>   
     <script src="js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/function.js"></script>    
+    <script type="text/javascript" src="js/function.js"></script> 
+    
+    <script src="//code.ionicframework.com/nightly/js/ionic.bundle.js"></script>
+<script src="//cdn.rawgit.com/driftyco/ng-cordova/master/dist/ng-cordova.min.js"></script>
+<script src="//cdn.rawgit.com/nraboy/ng-cordova-oauth/master/dist/ng-cordova-oauth.min.js"></script>
+
+   
       <title>Law Bulls</title>
    </head>
    <body>
@@ -43,9 +49,9 @@
                <img src="images/ordivider.png" alt="" />
             </div>
         <div class="loginwithsocial">
-         <button class="button facebookbtn" type="button"><i class="fa fa-facebook" aria-hidden="true"></i> Log in with facebook</button>
+         <button class="button facebookbtn" type="button" onClick="fbLogin();"><i class="fa fa-facebook" aria-hidden="true"></i> Log in with facebook</button>
          
-        <button class="button googlebtn" id="google_login" type="button" onClick="loginNow();"><i class="fa fa-google" aria-hidden="true"></i> Log in with google </button>
+        <button class="button googlebtn" id="google_login" type="button"><i class="fa fa-google" aria-hidden="true"></i> Log in with google </button>
         
          <p>My Name will come here: <span id="get_name"></span></p>
         </div>
@@ -59,37 +65,5 @@
          </div>
        </div>
    </body>
- <script type="text/javascript" src="js/google_signin.js"></script> 
- <script type="text/javascript">
- function loginNow(){
- window.plugins.googleplus.login(
-    {
-      'scopes': '... ', 
-    },
-    function (obj) {
-      alert(JSON.stringify(obj)); // do something useful instead of alerting
-    },
-    function (msg) {
-      alert('error: ' + msg);
-    }
-);
-
- }
-
-
-/*$(document).ready(function() {   	
-    $('#google_login').on('click', function() {
-        googleapi.authorize({
-            client_id: '605980070191-3t7uic9eip9am3tmj2u4pbv9bcmgje0m.apps.googleusercontent.com',
-            client_secret: 'IZTa7SIvYVz8kcFiirdgi2A5',
-            redirect_uri: 'http://localhost/lawbulls/apphtml/signin.html',
-            scope: 'https://www.googleapis.com/auth/analytics.readonly'
-        }).done(function(data) {
-            console.log(data.name);
-        }).fail(function(data) {
-            console.log('Error');
-        });
-    });
-});*/
- </script> 
+  <script type="text/javascript" src="js/fb.js"></script>
 </html>

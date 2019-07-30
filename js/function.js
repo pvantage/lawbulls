@@ -309,12 +309,25 @@ function removefavList(post_id){
 // GET Case Plan & case category
 
 function getPlans(post_id){
-	var action_url = siteurl + 'case_finders.php';	
+	var action_url = siteurl + 'case_finders.php';
+	
+	var plan_name = '';
+	var case_type = '';
+	
+	if(localStorage.getItem("pname") != null){
+		plan_name = localStorage.getItem("pname");
+	}
+	
+	if(localStorage.getItem("ctype") != null){
+		case_type = localStorage.getItem("ctype");
+	}
+	
+		
 	$.ajax({
 	 type: 'POST',
 	 url: action_url,
 	 dataType: 'json',
-	 data: {user_id:localStorage.getItem("login_id"),post_action:'case_category'},
+	 data: {user_id:localStorage.getItem("login_id"),post_action:'case_category', pname:plan_name, case_type:case_type},
 	 crossDomain: true,
 	 success: function(data){  
 	  	if(data['case_category']){
@@ -326,4 +339,9 @@ function getPlans(post_id){
 		}
 	 }
    });
+}
+
+// check trans id
+function checkTrans(){	
+	if(localStorage.getItem("trnx_id") == null) window.location = 'casefinder.html';
 }
