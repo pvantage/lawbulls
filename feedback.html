@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+   <head>
+      <!-- Required meta tags -->
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <!-- Bootstrap CSS -->
+      <link rel="stylesheet" href="css/bootstrap.min.css">
+      <link rel="stylesheet" href="css/style.css?v=1">
+      <link rel="stylesheet" href="css/font-awesome.min.css">
+      <link rel="stylesheet" type="text/css" href="css/menu_sideslide.css" />
+      <link rel="stylesheet" type="text/css" href="css/normalize.css" />
+      <title>Law Bulls</title>
+      <script src="js/jquery.js"></script>
+		<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+        <script src="js/popper.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="js/function.js"></script>
+        <script type="text/javascript">
+            checkLogin();
+        </script>
+        
+   </head>
+   <body>
+   <div class="feedback_screen">
+      <div class="top-header">
+         <div class="container">
+            <div class="menu-items">
+               <div class="mobile-menu">
+                  <a href="home.html"><img src="images/hamburger-icon.png" alt="Law Bulls" id="open-button"></a>
+               </div>
+               <div class="menu-wrap" id="nav_menu_list"></div> 
+               <div class="logo-div">
+                  <img src="images/applogo.png" alt="" />
+               </div>
+               <div class="search-div">
+                  <a href="searchscreen.html"> <img src="images/searchicon.png" alt="" /></a>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="feedbackscreen">
+         <div class="container">
+            <div class="go_on">
+               <div class="form-left">
+                  <h6>Go on we're listening!</h6>
+                  <div id="feedback_form">
+                     <div class="form-group">
+                        <input type="text" placeholder="Name" name="cust_name" id="cust_name" maxlength="25">
+                        <input type="hidden" name="post_action" id="post_action" value="feedback">
+                     </div>
+                     <div class="form-group">
+                        <input type="text" placeholder="Mobile No." name="cust_mob" id="cust_mob" data-mask="000-0000-000" maxlength="10">
+                     </div>
+                     <div class="form-group">
+                        <input type="email" placeholder="Email Address" name="cust_email" id="cust_email" maxlength="40">
+                     </div>
+                     <div class="form-group">
+                        <textarea placeholder="Feedback" name="cust_feedback" id="cust_feedback"></textarea>
+                     </div>
+                     <div class="feedbackbtn">
+                        <button class="button" id="sbmtfdbk">Submit</button>
+                     </div>
+                  </div>
+               </div>
+               <div class="logo_right">
+                  <img src="images/splashlogo.png" alt="" />
+               </div>
+            </div>
+            <div class="sucessmmessage"></div>
+         </div>
+      </div>
+    <div class="botom-imgwithlongcontent">
+         <img src="images/bottombackgroundimg.png" alt="">
+      </div>
+      </div>     
+   </body>
+  <script src="js/jquery.mask.js"></script>
+<script type="text/javascript">
+localStorage.removeItem('pdate');
+localStorage.removeItem('pquestion');
+localStorage.removeItem('pcomment');
+localStorage.removeItem('pamount');
+localStorage.removeItem('trnx_id');
+localStorage.removeItem('pname');
+localStorage.removeItem('ctype');
+
+$(document).ready(function() {
+  $('#sbmtfdbk').on('click', function(){
+	
+	var action_url = siteurl + 'case_finders.php';	
+	$.ajax({
+	 type: 'POST',
+	 url: action_url,
+	 dataType: 'json',
+	 data: $('#feedback_form input[type=\'text\'], #feedback_form input[type=\'email\'], #feedback_form input[type=\'hidden\'], #feedback_form textarea'),
+	 crossDomain: true,
+	 success: function(data){		 
+		$('.error').remove();
+		$('.sucessmmessage').html('');
+		 		 		 
+	   	if(data['success'])
+		{	
+			$('#feedback_form input[type=text],#feedback_form input[type=email]').val('');
+			$('#feedback_form textarea').val('');		
+			$('.sucessmmessage').html(data['success']);
+				
+		}else if(data['error']){
+			
+			if(data['error']['cust_name']){
+				$('#cust_name').after('<span class="error text-danger">' + data['error']['cust_name'] + '</span>');
+			}
+			
+			if(data['error']['cust_mob']){
+				$('#cust_mob').after('<span class="error text-danger">' + data['error']['cust_mob'] + '</span>');
+			}
+			
+			if(data['error']['cust_email']){
+				$('#cust_email').after('<span class="error text-danger">' + data['error']['cust_email'] + '</span>');
+			}
+			
+			if(data['error']['cust_feedback']){
+				$('#cust_feedback').after('<span class="error text-danger">' + data['error']['cust_feedback'] + '</span>');
+			}			
+		}
+	 }
+   });
+		
+   });
+});
+
+</script>
+</html>

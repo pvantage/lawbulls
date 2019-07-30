@@ -39,7 +39,7 @@
       </div>
       <div class="container">
          <div class="case-finder">
-            <form>
+            <div id="case_finder">
                <p>It is necessary to fill the fields marked as *.</p>
                <div class="form-group">
                   <label>Case Type <em>*</em></label>
@@ -49,7 +49,7 @@
                </div>
                <div class="form-group">
                   <label>Date Range</label>
-                  <input type="text" data-mask="00/00/0000" name="date_range" id="date_range" placeholder="Please enter date (mm/dd/yyyy)"/> 
+                  <input type="text" data-mask="00/00/0000" name="date_range" id="date_range" placeholder="Please enter date (dd/mm/yyyy)"/> 
                </div>
                <div class="form-group">
                   <label>Choose Plan <em>*</em></label>
@@ -65,12 +65,13 @@
                   <label>Comments, if any 
                   <span>(Please provide a brief outlook of the case for more accuracy and better results)</span></label>
                   <textarea name="case_comments" id="case_comments"></textarea>
+                  <input type="hidden" name="post_action" value="buyplan">
                </div>
                <div class="buuton_divv">
-                  <button class="button">Submit & Pay</button>
+                  <button class="button" onClick="paymentProceed();">Submit & Pay</button>
                   <button class="button" onClick="clearForm();">Clear the form</button>
                </div>
-            </form>
+            </div>
          </div>
     </div>
  <div class="botom-imgwithlongcontent">
@@ -81,7 +82,88 @@
 <script src="js/jquery.mask.js"></script>
 <script type="text/javascript">
 create_nav();
-getPlans(); 
+getPlans();
+
+$(document).ready(function(){	
+	
+    if(localStorage.getItem("pdate") != null){
+		$('#date_range').val(localStorage.getItem("pdate"));
+	}
+	
+	if(localStorage.getItem("pquestion") != null){
+		$('#case_question').val(localStorage.getItem("pquestion"));
+	}
+	
+	if(localStorage.getItem("pcomment") != null){
+		$('#case_comments').val(localStorage.getItem("pcomment"));
+	}	
+	
+});
+
+function clearForm(){
+	$('#case_finder input[type=text]').val('');
+	$('#case_finder textarea').val('');
+	$('#case_finder select').val('');
+	
+	localStorage.removeItem('pdate');
+	localStorage.removeItem('pquestion');
+	localStorage.removeItem('pcomment');
+	localStorage.removeItem('pamount');
+	localStorage.removeItem('trnx_id');
+	localStorage.removeItem('pname');
+	localStorage.removeItem('ctype');
+} 
+
+function paymentProceed(){
+	var action_url = siteurl + 'case_finders.php';	
+	$.ajax({
+	 type: 'POST',
+	 url: action_url,
+	 dataType: 'json',
+	 data: $('#case_finder input[type=\'text\'], #case_finder input[type=\'hidden\'], #case_finder textarea, #case_finder select'),
+	 crossDomain: true,
+	 success: function(data){		 
+		$('.error').remove();
+		 		 		 
+	   	if(data['success'])
+		{
+			localStorage.setItem('trnx_id', data['success']['tranx_id']);						
+			localStorage.setItem('pamount', data['success']['pamount']);			
+			localStorage.setItem('pname', data['success']['pname']);
+			localStorage.setItem('ctype', data['success']['ctype']);
+			localStorage.setItem('pdate', data['success']['pdate']);
+			localStorage.setItem('pquestion', data['success']['pquestion']);
+			localStorage.setItem('pcomment', data['success']['pcomment']);
+			
+			window.location = 'payment.html?trnx_id=' + data['success']['tranx_id'] + '&pamt='+data['success']['pamount'];
+			
+		}else if(data['error']){
+			
+						
+			if(data['error']['case_type']){
+				
+				$('#case_type').after('<span class="error text-danger">' + data['error']['case_type'] + '</span>');
+			}
+			
+			if(data['error']['date_range']){
+				$('#date_range').after('<span class="error text-danger">' + data['error']['date_range'] + '</span>');
+			}
+			
+			if(data['error']['case_plan']){
+				$('#case_plan').after('<span class="error text-danger">' + data['error']['case_plan'] + '</span>');
+			}
+			
+			if(data['error']['case_question']){
+				$('#case_question').after('<span class="error text-danger">' + data['error']['case_question'] + '</span>');
+			}
+			
+			if(data['error']['case_comments']){
+				$('#case_comments').after('<span class="error text-danger">' + data['error']['case_comments'] + '</span>');
+			}			
+		}
+	 }
+   });	
+}
 </script>
    </body>
 </html>
