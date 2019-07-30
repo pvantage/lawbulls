@@ -47,7 +47,7 @@
          
         <button class="button googlebtn" id="google_login" type="button"><i class="fa fa-google" aria-hidden="true"></i> Log in with google </button>
         
-         <p>My Name will come here: <span id="get_name"></span></p>
+        
         </div>
         <div class="signupdiv">
            <a class="button signupbtn" href="signup.html">Sign Up</a>
@@ -62,7 +62,7 @@
 <script type="text/javascript" src="js/fb.js"></script>
 <script type="text/javascript">
 function fbLogin(){
-	facebookConnectPlugin.browserInit(470699603728461);
+	facebookConnectPlugin.browserInit('470699603728461');
 	
 	var fbLoginSuccess = function (userData) {
 	    alert("UserInfo: " + JSON.stringify(userData));
