@@ -36,7 +36,7 @@
   		<param name="REVERSED_CLIENT_ID" value="605980070191-h41pio74e2bi8b8gj1df8qose4hvp5kd.apps.googleusercontent.com" />
 	</gap:plugin>-->
 	
-	<plugin name="cordova-plugin-facebook4" source="npm">
+	<plugin name="cordova-plugin-facebook" source="npm">
         <param name="APP_ID" value="470699603728461" />
         <param name="APP_NAME" value="Lawbulls" />
     </plugin>	
