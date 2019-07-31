@@ -264,18 +264,38 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active:focus {
 }
 /* Absolute Center Spinner */
 .loading {
-  position: fixed;
-  z-index: 9999;
-  height: 12em;
-  width: 12em;
-  overflow: visible;
-  margin: auto;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-} 
-
+    position: fixed;
+    z-index: 9999;
+    height: 70px;
+    width: 70px;
+    overflow: visible;
+    margin: auto;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+.loadercase {
+    width: 65px;
+    height: 65px;
+    border: 2px solid #558066;
+    border-radius: 50%;
+    padding: 5px 0 0;
+    /* margin: 5px; */
+    background: rgba(255, 255, 255, 0.6);
+    overflow: hidden;
+}
+.loadercase:after {
+    content: "";
+    width: 100%;
+    background: #558066;
+    height: 43%;
+    display: block;
+    margin-top: -2px;
+}
+.loadercase img {
+    padding: 4px 3px 0;
+}
 /* Transparent Overlay */
 .loading:before {
   content: '';
