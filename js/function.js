@@ -147,41 +147,6 @@ function resetPassword(){
    });
 }
 
-function create_nav(){	
-    var menu_links = '<div class="profile-info">';
-    menu_links += '<img src="images/FakeDP.jpeg" alt="" /><span class="username">'+ localStorage.getItem("disp_name") +'</span>';
-	menu_links += '</div>';
-	menu_links += '<nav class="menu">';
-	menu_links += '<div class="icon-list">';
-	menu_links += '<a href="home.html"><img src="images/home.png" alt="Home" /><span>Home</span></a>';
-	
-if(localStorage.getItem("login_id") != null){
-	menu_links += '<a href="casefinder.html"><img src="images/hammer_icon.png" alt="Case finder"><span>Case finder <span class="casepro">Pro</span></span></a>';
- menu_links += '<a href="favourite.html"><img src="images/favourite_icon.png" alt="Favorites"><span>Favorites</span></a>';
- menu_links += '<a href="myorder.html"><img src="images/order_icon.png" alt="My Orders"><span>My Orders</span></a>';
- menu_links += '<a href="previous-order.html"><img src="images/order_icon2.png" alt="Previous Orders"><span>Previous Orders</span></a>';
-}
- 
- menu_links += '<a href="feedback.html"><img src="images/feedback.png" alt="Feedback"><span>Feedback</span></a>';
- menu_links += '<a href="#"><img src="images/terms_icon.png" alt="Terms & conditions"><span>Terms & conditions</span></a>';
- menu_links += '<a href="#"><img src="images/about_icon.png" alt="About Us"><span>About Us</span></a>';
- menu_links += '</div>';
- menu_links += '</nav>';
- menu_links += '<div class="menu-footer">';
- menu_links += '<div class="float-left"><a href="javascript:void(0);" onclick="logOut();">Sign Out</a></div>';
- menu_links += '<div class="float-right">';
- menu_links += '<ul class="menu-social">';
- menu_links += '<li><a href="https://www.facebook.com/LawBullsIndia" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>';
- menu_links += '<li><a href="https://www.instagram.com/lawbulls" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>';
- menu_links += '<li><a href="#" target="_blank"><i class="fa fa-snapchat-ghost" aria-hidden="true"></i></a></li>';
- menu_links += '</ul>';
- menu_links += '</div>';
- menu_links += '</div>';
- menu_links += '<button class="close-button" id="close-button">Close Menu</button>'; 
- $('#nav_menu_list').html(menu_links);
-}
-
-
 // post detail
 
 function postdetail(post_id){
@@ -344,4 +309,20 @@ function getPlans(post_id){
 // check trans id
 function checkTrans(){	
 	if(localStorage.getItem("trnx_id") == null) window.location = 'casefinder.html';
+}
+
+
+$(function(){
+    var url = window.location.pathname, 
+        urlRegExp = new RegExp(url.replace(/\/$/,'') + "$");
+        $('.menu a').each(function(){            
+            if(urlRegExp.test(this.href.replace(/\/$/,''))){
+                $(this).addClass('active');
+            }
+        });
+
+});
+
+function getLoginname(){	
+		$('.username').html(localStorage.getItem("disp_name"));	
 }
