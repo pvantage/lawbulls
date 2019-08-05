@@ -60,7 +60,11 @@
        </div>
    </body>
 <script type="text/javascript">
-function fbLogin(){
+function loginMe(){
+cordova.InAppBrowser.open('fb.html', '_blank');	
+}
+
+/*function fbLogin(){
 	
 	//alert('Button clicked');
 	facebookConnectPlugin.browserInit('470699603728461');
@@ -74,6 +78,6 @@ function fbLogin(){
 		function (error) { alert("" + error) }
 	);
 	   
-} 
+} */
 </script> 
 </html>
