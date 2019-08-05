@@ -62,23 +62,25 @@
 <script type="text/javascript">
 function fbLogin(){
 
-        facebookConnectPlugin.getLoginStatus(function(response) {
+        /*facebookConnectPlugin.getLoginStatus(function(response) {
             if (response.status === "connected") {
                 alert("Logged in, details:\n\n" + JSON.stringify(response.authResponse));
             } else {
                 alert("Not logged in");
             }
-        });
+        });*/
 
-        var fbLoginSuccess = function (userData) {
-            alert("UserInfo: ", userData);
-        };
+        
 
-        facebookConnectPlugin.login(["email", "public_profile"], fbLoginSuccess,
+        facebookConnectPlugin.login(["public_profile"], fbLoginSuccess,
             function loginError (error) {
                 alert(error)
             }
         );
 }
+
+var fbLoginSuccess = function (userData) {
+            alert("UserInfo: ", userData);
+        };
 </script> 
 </html>
