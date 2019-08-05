@@ -105,33 +105,14 @@
                   </a>
                </div>
             </div>-->
-            <!--<div class="suggestions">
-               <h2>Suggestions</h2>
-               <div class="suggestions_list" data-aos="fade-up">
-                <a href="detailpage.html">
-                  <div class="img_box">
-                     <img src="images/dummy.jpg" alt="" />
-                  </div>
-                  <div class="content-box">
-                     <h5 class="post-title">Lorem epsum 1</h5>
-                     <p> Lorem Ipsum has been the industry's standard dummy </p>
-                  </div>
-                  </a>
-               </div>
-               <div class="suggestions_list" data-aos="fade-up">
-                <a href="detailpage.html">
-                  <div class="img_box">
-                     <img src="images/dummy.jpg" alt="" />
-                  </div>
-                  <div class="content-box">
-                     <h5 class="post-title">Lorem epsum 2</h5>
-                     <p> Lorem Ipsum has been the industry's standard dummy </p>
-                  </div>
-                  </a>
-               </div>
-            </div>-->
+           <div class="suggestions" id="search_result">              
+                              
+            </div>
          </div>
-      </div>     
+      </div>
+<div class="loading" id="loader" style="display:none"><div class="loadercase"><img src="images/loader_img.gif" alt="Please wait" /></div></div>      
+      
+           
       <script src="js/classie.js"></script>
       <script src="js/main.js"></script>
       <script src="js/aos.js"></script>
@@ -143,17 +124,23 @@ getLoginname();
  var key = e.which;
  if(key == 13)  
   {
-	  alert("hello");
-    	var search_input = $('search_post').val();
+	  //alert("hello");
+	   $('#loader').show();
+    	var search_input = $('#search_post').val();
 		var action_url = siteurl + 'posts.php';	
 		$.ajax({
 		 type: 'POST',
 		 url: action_url,
 		 dataType: 'json',
-		 data: {post_action:'search', search_input:search_input},
+		 data: {post_action:'search', search_post:search_input},
 		 crossDomain: true,
 		 success: function(data){	 		 		 
-				
+				if(data['content']){			
+				 $('#search_result').html('<p>Showing Relevant Results for : <span class="relevant_result">'+ search_input +'</span></p>'+data['content']);				
+				 $('#loader').hide();
+				}else if(data['error']){
+					$('#search_result').html(data['error']);
+				}
 		 }
 	   });
     
