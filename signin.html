@@ -61,23 +61,24 @@
    </body>
 <script type="text/javascript">
 function loginMe(){
-cordova.InAppBrowser.open('fb.html', '_blank');	
+
+        facebookConnectPlugin.getLoginStatus(function(response) {
+            if (response.status === "connected") {
+                alert("Logged in, details:\n\n" + JSON.stringify(response.authResponse));
+            } else {
+                alert("Not logged in");
+            }
+        });
+
+        var fbLoginSuccess = function (userData) {
+            alert("UserInfo: ", userData);
+        };
+
+        facebookConnectPlugin.login(["email", "public_profile"], fbLoginSuccess,
+            function loginError (error) {
+                alert(error)
+            }
+        );
 }
-
-/*function fbLogin(){
-	
-	//alert('Button clicked');
-	facebookConnectPlugin.browserInit('470699603728461');
-	
-	var fbLoginSuccess = function (userData) {
-	    alert("UserInfo: " + JSON.stringify(userData));
-  }
-
-	facebookConnectPlugin.login(["public_profile"],
-		fbLoginSuccess,
-		function (error) { alert("" + error) }
-	);
-	   
-} */
 </script> 
 </html>

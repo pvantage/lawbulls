@@ -32,6 +32,12 @@
 	  <param name="android-package" value="nl.xservices.plugins.SocialSharing" />
 	</feature>
 	
+	
+	<plugin name="cordova-plugin-facebook4" spec="1.7.4" source="npm">
+    <variable name="APP_ID" value="971377056549077" />
+    <variable name="APP_NAME" value="Law Bulls - Test" />
+</plugin>
+	
 	<!--<gap:plugin name="cordova-plugin-googleplus" source="npm">
   		<param name="REVERSED_CLIENT_ID" value="605980070191-h41pio74e2bi8b8gj1df8qose4hvp5kd.apps.googleusercontent.com" />
 	</gap:plugin>-->
