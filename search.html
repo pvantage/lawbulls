@@ -134,10 +134,13 @@ getLoginname();
 		 dataType: 'json',
 		 data: {post_action:'search', search_post:search_input},
 		 crossDomain: true,
-		 success: function(data){	 		 		 
+		 success: function(data){
+			 $('#search_post').blur();
+			 $('#loader').hide();
+			 	 		 		 
 				if(data['content']){			
 				 $('#search_result').html('<p>Showing Relevant Results for : <span class="relevant_result">'+ search_input +'</span></p>'+data['content']);				
-				 $('#loader').hide();
+				 
 				}else if(data['error']){
 					$('#search_result').html(data['error']);
 				}
