@@ -126,6 +126,7 @@ getLoginname();
   {
 	  //alert("hello");
 	   $('#loader').show();
+	   $('#search_post').blur();
     	var search_input = $('#search_post').val();
 		var action_url = siteurl + 'posts.php';	
 		$.ajax({
@@ -135,7 +136,7 @@ getLoginname();
 		 data: {post_action:'search', search_post:search_input},
 		 crossDomain: true,
 		 success: function(data){
-			 $('#search_post').blur();
+			 
 			 $('#loader').hide();
 			 	 		 		 
 				if(data['content']){			
