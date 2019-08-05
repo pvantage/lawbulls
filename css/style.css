@@ -134,6 +134,9 @@ body {background:#3c3c3c;
     left: 0;
     right: 0; width:100%; 
 }
+.icon-list a.active {
+    color: #548164;
+}
 .botom-content img {
     width: 100%;
 }
@@ -583,7 +586,7 @@ div#show_fav_message {
     color: #fff;
     font-size: 22px;
 }
-.top-search input {
+.top-search input,.top-search input[type="search"] {
     width: 100%;
     display: block;
     margin: 0 auto;

@@ -5,12 +5,12 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
       <!-- Bootstrap CSS -->
-      <link rel="stylesheet" href="css/bootstrap.min.css">
-      <link rel="stylesheet" href="css/style.css?v=1">
+      <link rel="stylesheet" href="css/bootstrap.min.css">      
       <link rel="stylesheet" href="css/font-awesome.min.css">
       <link rel="stylesheet" type="text/css" href="css/menu_sideslide.css" />
       <link rel="stylesheet" type="text/css" href="css/normalize.css" />
       <link href="css/aos.css" rel="stylesheet">
+      <link rel="stylesheet" href="css/style.css">
       <title>Law Bulls</title>
       <script src="js/jquery.js"></script>
 		<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
@@ -62,16 +62,16 @@
                <div class="logo-div">
                   <a href="home.html"><img src="images/applogo.png" alt="Law Bulls"></a>
                </div>
-               <div class="search-div">
+               <!--<div class="search-div">
                    <a href="search.html"> <img src="images/searchicon.png" alt="" /></a>
-               </div>
+               </div>-->
             </div>
          </div>
       </div>
       <div class="search-screen">
          <div class="container">
             <div class="top-search">
-               <input type="text" placeholder="Search here..." name="search_post" id="search_post">
+               <input type="search" placeholder="Search here..." name="search_post" id="search_post">
                <!--<h5>Search in</h5>
                <ul class="search-list">
                   <li><a href="#">Date Range</a></li>
@@ -143,7 +143,19 @@ getLoginname();
  var key = e.which;
  if(key == 13)  
   {
-    alert("Hello");
+	  alert("hello");
+    	var search_input = $('search_post').val();
+		var action_url = siteurl + 'posts.php';	
+		$.ajax({
+		 type: 'POST',
+		 url: action_url,
+		 dataType: 'json',
+		 data: {post_action:'search', search_input:search_input},
+		 crossDomain: true,
+		 success: function(data){	 		 		 
+				
+		 }
+	   });
     
   }
 });  
