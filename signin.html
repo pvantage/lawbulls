@@ -72,18 +72,19 @@ $("#fbLogin").on('click', function(){
         });*/
 
         var fbLoginSuccess = function (userData) {
-            alert("UserInfo: ", userData);
+            //alert("UserInfo: ", userData);
 			
-			facebookConnectPlugin.api("/me?fields=id,name,email", ["public_profile", "email"], function(response) {
-        	alert.log(response.id + " | " + response.name + " | " + response.email + " | ");
-    		},
-    		fbErrorHandler
-	);
+			facebookConnectPlugin.api(userData.authResponse.userID + '/?fields=id,name,email', ["public_profile"], function(data) {
+		   alert('Name: '+ data.name + ', email: '+data.email);
+		
+		}, function(error) {
+				alert(error);
+		});
 
 
         };
 
-        facebookConnectPlugin.login(["public_profile", "email"], fbLoginSuccess,
+        facebookConnectPlugin.login(["public_profile"], fbLoginSuccess,
             function loginError (error) {
                 alert(error)
             }
