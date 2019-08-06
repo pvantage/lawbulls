@@ -74,8 +74,39 @@ $("#fbLogin").on('click', function(){
         var fbLoginSuccess = function (userData) {
             //alert("UserInfo: ", userData);
 			
-			facebookConnectPlugin.api(userData.authResponse.userID + '/?fields=id,name,email', ["public_profile"], function(data) {
-		   alert('Name: '+ data.name + ', email: '+data.email);
+			facebookConnectPlugin.api(userData.authResponse.userID + '/?fields=id,name,email,first_name,last_name', ["public_profile"], function(data) {
+		   alert('Name: '+ data.name + ', email: '+data.email + ', First Name:'+first_name + ', Last Name:'+last_name);
+		   // STORE DATE
+		      /*var fb_email = data.email;
+			  var fb_name = data.name;
+		  
+				var action_url = siteurl + 'account.php?pageacct=fblogin';	
+				$.ajax({
+				 type: 'POST',
+				 url: action_url,
+				 dataType: 'json',
+				 data: {email:fb_email, name:fb_name},
+				 crossDomain: true,
+				 success: function(data){		 
+					$('.error').remove();
+									 
+					if(data['success'])
+					{
+						localStorage.setItem('login_id', data['success']['user_id']);
+						localStorage.setItem('disp_name', data['success']['disp_name']);
+						window.location = "home.html";
+						
+					}else if(data['error']){
+						
+						if(data['error']['email']){
+							alert(data['error']['email']);
+						}						
+								
+					}
+				 }
+			   });*/
+		   
+		   // END
 		
 		}, function(error) {
 				alert(error);
