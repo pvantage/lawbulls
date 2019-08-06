@@ -74,10 +74,10 @@ $("#fbLogin").on('click', function(){
         var fbLoginSuccess = function (userData) {
             //alert("UserInfo: ", userData);
 			
-			facebookConnectPlugin.api(userData.authResponse.userID + '/?fields=id,name,email,first_name,last_name', ["public_profile"], function(data) {
-		   alert('Name: '+ data.name + ', email: '+data.email + ', First Name:'+first_name + ', Last Name:'+last_name);
+			facebookConnectPlugin.api(userData.authResponse.userID + '/?fields=id,name,email', ["public_profile"], function(data) {
+		   //alert('Name: '+ data.name + ', email: '+data.email);
 		   // STORE DATE
-		      /*var fb_email = data.email;
+		      var fb_email = data.email;
 			  var fb_name = data.name;
 		  
 				var action_url = siteurl + 'account.php?pageacct=fblogin';	
@@ -104,7 +104,7 @@ $("#fbLogin").on('click', function(){
 								
 					}
 				 }
-			   });*/
+			   });
 		   
 		   // END
 		
