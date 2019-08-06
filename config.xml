@@ -36,7 +36,12 @@
 	<plugin name="cordova-plugin-facebook4" spec="1.7.4" source="npm">
       <variable name="APP_ID" value="364664900872915" />
       <variable name="APP_NAME" value="lawbulls" />
-</plugin>
+   </plugin>
+   
+   <plugin name="cordova-plugin-googleplus" source="npm">
+  	 <variable name="REVERSED_CLIENT_ID" value="AIzaSyD5pG4AfXKQaxV1Z_99u_tqnwb_DfB6yRo" />
+  	 <variable name="WEB_APPLICATION_CLIENT_ID" value="AIzaSyD5pG4AfXKQaxV1Z_99u_tqnwb_DfB6yRo" />
+	</plugin>
 	
 	<!--<gap:plugin name="cordova-plugin-googleplus" source="npm">
   		<param name="REVERSED_CLIENT_ID" value="605980070191-h41pio74e2bi8b8gj1df8qose4hvp5kd.apps.googleusercontent.com" />

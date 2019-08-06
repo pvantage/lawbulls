@@ -45,7 +45,7 @@
         <div class="loginwithsocial">
          <button class="button facebookbtn" type="button" id="fbLogin"><i class="fa fa-facebook" aria-hidden="true"></i> Log in with facebook</button>
          
-        <button class="button googlebtn" id="google_login" type="button"><i class="fa fa-google" aria-hidden="true"></i> Log in with google </button>
+        <button class="button googlebtn" id="googleLogin" type="button"><i class="fa fa-google" aria-hidden="true"></i> Log in with google </button>
         
         
         </div>
@@ -60,17 +60,9 @@
        </div>
    </body>
 <script type="text/javascript">
-
+// Facebook Login
 $("#fbLogin").on('click', function(){	
 	
-        /*facebookConnectPlugin.getLoginStatus(function(response) {
-            if (response.status === "connected") {
-                alert("Logged in, details:\n\n" + JSON.stringify(response.authResponse));
-            } else {
-                alert("Not logged in");
-            }
-        });*/
-
         var fbLoginSuccess = function (userData) {
             //alert("UserInfo: ", userData);
 			
@@ -121,5 +113,26 @@ $("#fbLogin").on('click', function(){
             }
         );
 });
+
+// END Facebook Login
+
+// Google Login
+
+$('#googleLogin').on('click', function(){
+	window.plugins.googleplus.login(
+    {
+      'scopes': '... ', 
+      'webClientId': 'AIzaSyD5pG4AfXKQaxV1Z_99u_tqnwb_DfB6yRo', 
+      'offline': true 
+    },
+    function (obj) {
+      alert('All Response: ' + JSON.stringify(obj));
+    },
+    function (msg) {
+      alert('error: ' + msg);
+    }
+);
+});
+// End Google login
 </script> 
 </html>
