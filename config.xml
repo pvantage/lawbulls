@@ -35,7 +35,7 @@
 	
 	<plugin name="cordova-plugin-facebook4" spec="1.7.4" source="npm">
     <variable name="APP_ID" value="364664900872915" />
-    <variable name="APP_NAME" value="Law Bulls" />
+    <variable name="APP_NAME" value="lawbulls" />
 </plugin>
 	
 	<!--<gap:plugin name="cordova-plugin-googleplus" source="npm">
