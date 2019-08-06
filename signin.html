@@ -119,11 +119,12 @@ $("#fbLogin").on('click', function(){
 // Google Login
 
 $('#googleLogin').on('click', function(){
+	alert("hello");
 	window.plugins.googleplus.login(
     {
       'scopes': 'profile', 
       'webClientId': '409402772452-t60v66o7i7v5n7nbv59udbpoo2btchn5.apps.googleusercontent.com', 
-      'offline': true 
+      'offline': false 
     },
     function (obj) {
       alert('All Response: ' + JSON.stringify(obj));
