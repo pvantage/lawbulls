@@ -43,7 +43,7 @@
                <img src="images/ordivider.png" alt="" />
             </div>
         <div class="loginwithsocial">
-         <button class="button facebookbtn" type="button" onClick="fbLogin();"><i class="fa fa-facebook" aria-hidden="true"></i> Log in with facebook</button>
+         <button class="button facebookbtn" type="button" id="fbLogin"><i class="fa fa-facebook" aria-hidden="true"></i> Log in with facebook</button>
          
         <button class="button googlebtn" id="google_login" type="button"><i class="fa fa-google" aria-hidden="true"></i> Log in with google </button>
         
@@ -60,8 +60,9 @@
        </div>
    </body>
 <script type="text/javascript">
-function fbLogin(){
 
+$("#fbLogin").on('click', function(){	
+	
         /*facebookConnectPlugin.getLoginStatus(function(response) {
             if (response.status === "connected") {
                 alert("Logged in, details:\n\n" + JSON.stringify(response.authResponse));
@@ -70,17 +71,15 @@ function fbLogin(){
             }
         });*/
 
-        
+        var fbLoginSuccess = function (userData) {
+            alert("UserInfo: ", userData);
+        };
 
         facebookConnectPlugin.login(["public_profile"], fbLoginSuccess,
             function loginError (error) {
                 alert(error)
             }
         );
-}
-
-var fbLoginSuccess = function (userData) {
-            alert("UserInfo: ", userData);
-        };
+});
 </script> 
 </html>
