@@ -56,12 +56,10 @@
     	<preference name="android-minSdkVersion" value="16" />
 	</platform>
 	
-	<platform name="ios" >
+	<platform name="ios">
   		<preference name="ios-minSdkVersion" value="6" />
 	</platform>
-	
-	
-		
+			
 	<icon src="icon.png" />
 	<icon gap:platform="webos" src="res/icon/ios/Icon-180.png" />
 	<icon src="res/icon/ios/Icon-180.png" gap:platform="android" gap:density="ldpi" />
