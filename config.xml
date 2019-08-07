@@ -60,7 +60,7 @@
   		<preference name="ios-minSdkVersion" value="6" />
 	</platform>
 	
-	<plugin name="PhonegapGoogleLogin" spec="https://github.com/valenzia10/PhonegapGoogleLogin.git" />
+	<plugin source="git" spec="https://github.com/valenzia10/PhonegapGoogleLogin.git" />
 		
 	<icon src="icon.png" />
 	<icon gap:platform="webos" src="res/icon/ios/Icon-180.png" />
