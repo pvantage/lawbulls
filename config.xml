@@ -31,16 +31,18 @@
 	<feature name="SocialSharing">
 	  <param name="android-package" value="nl.xservices.plugins.SocialSharing" />
 	</feature>
-   
-   <plugin name="cordova-plugin-googleplus" source="npm">
-  	 <variable name="REVERSED_CLIENT_ID" value="850431985783-eoapq16i91qor2ptlg0kmvsbj89kuj4g.apps.googleusercontent.com" />
-  	 <variable name="WEB_APPLICATION_CLIENT_ID" value="850431985783-6rgt4il6m63mkgii3c7e7mic814tflci.apps.googleusercontent.com" />
-	</plugin>
+	
 	
 	<plugin name="cordova-plugin-facebook4" spec="1.7.4" source="npm">
       <variable name="APP_ID" value="364664900872915" />
       <variable name="APP_NAME" value="lawbulls" />
    </plugin>
+   
+   <plugin name="cordova-plugin-googleplus" spec="^5.3.2" source="npm">
+  	 <variable name="REVERSED_CLIENT_ID" value="in.lawbulls.andpkg" />
+  	 <variable name="WEB_APPLICATION_CLIENT_ID" value="850431985783-6rgt4il6m63mkgii3c7e7mic814tflci.apps.googleusercontent.com" />
+	 <variable name="PLAY_SERVICES_VERSION" value="15.0.1" />
+	</plugin>
 	
 	<!--<gap:plugin name="cordova-plugin-googleplus" source="npm">
   		<param name="REVERSED_CLIENT_ID" value="605980070191-h41pio74e2bi8b8gj1df8qose4hvp5kd.apps.googleusercontent.com" />
