@@ -15,9 +15,11 @@
     
     <script type="text/javascript">
 	
-	function initb() {
     
 	document.addEventListener("deviceready", function(){
+		
+		alert('Device is ready');
+		
       window.plugins.googleplus.isAvailable(
 				function (available) {
 				  if (available) {
@@ -31,14 +33,14 @@
 	
 	},true);
  
-	}
+	
  
 		
 	</script>
     
      <title>Law Bulls</title>
    </head>
-   <body onload="initb()">
+   <body>
   
    <div class="sign_inscreen">
       <div class="top-header">
