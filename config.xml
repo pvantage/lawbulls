@@ -39,7 +39,7 @@
    </plugin>
    
    <plugin name="cordova-plugin-googleplus" source="npm">
-  	 <variable name="REVERSED_CLIENT_ID" value="com.googleusercontent.apps.lawbull" />
+  	 <variable name="REVERSED_CLIENT_ID" value="in.lawbulls" />
   	 <variable name="WEB_APPLICATION_CLIENT_ID" value="850431985783-eoapq16i91qor2ptlg0kmvsbj89kuj4g.apps.googleusercontent.com" />
 	</plugin>
 	
