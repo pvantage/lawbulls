@@ -39,8 +39,8 @@
    </plugin>
    
    <plugin name="cordova-plugin-googleplus" source="npm">
-  	 <variable name="REVERSED_CLIENT_ID" value="3zqmDddgkAR_xqPuMgZtzgVQ" />
-  	 <variable name="WEB_APPLICATION_CLIENT_ID" value="409402772452-nccahr2fnvfn7pbcko8hmfhvfnl8vfe1.apps.googleusercontent.com" />
+  	 <variable name="REVERSED_CLIENT_ID" value="com.googleusercontent.apps.lawbull" />
+  	 <variable name="WEB_APPLICATION_CLIENT_ID" value="850431985783-eoapq16i91qor2ptlg0kmvsbj89kuj4g.apps.googleusercontent.com" />
 	</plugin>
 	
 	<!--<gap:plugin name="cordova-plugin-googleplus" source="npm">
@@ -60,7 +60,7 @@
   		<preference name="ios-minSdkVersion" value="6" />
 	</platform>
 	
-	<!--<plugin source="git" spec="https://github.com/valenzia10/PhonegapGoogleLogin.git" />-->
+	
 		
 	<icon src="icon.png" />
 	<icon gap:platform="webos" src="res/icon/ios/Icon-180.png" />

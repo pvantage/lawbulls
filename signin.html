@@ -11,10 +11,11 @@
     <script src="js/jquery.js"></script>
     <script type="text/javascript" charset="utf-8" src="cordova.js"></script>   
     <script src="js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/function.js"></script> 
+    <script type="text/javascript" src="js/function.js"></script>
      <title>Law Bulls</title>
    </head>
    <body>
+  
    <div class="sign_inscreen">
       <div class="top-header">
          <div class="container">
@@ -47,6 +48,7 @@
          
         <button class="button googlebtn" id="googleLogin" type="button"><i class="fa fa-google" aria-hidden="true"></i> Log in with google </button>
         
+      
         
         </div>
         <div class="signupdiv">
@@ -57,9 +59,8 @@
         <div class="botom-imgwithlongcontent">
             <img src="images/bottombackgroundimg.png" alt="">
          </div>
-       </div>
+       </div>       
    </body>
-<script type="text/javascript" src="./js/google.js"></script>   
 <script type="text/javascript">
 // Facebook Login
 $("#fbLogin").on('click', function(){	
@@ -119,8 +120,8 @@ $("#fbLogin").on('click', function(){
 
 // Google Login
 
-/*$('#googleLogin').on('click', function(){
-	alert("hello");
+$('#googleLogin').on('click', function(){
+	/*alert("hello");
 	window.plugins.googleplus.login(
     {
       'scopes': 'profile', 
@@ -133,30 +134,28 @@ $("#fbLogin").on('click', function(){
     function (msg) {
       alert('error: ' + msg);
     }
-);
-});*/
+);*/
 
 
-
-var clientId = "345370152684-b6riqd76ar9v2o1641rja1o9um5960mb.apps.googleusercontent.com";
- var clientSecret = "ANci-g2Xg1dd67xRm1czKgkB";
- gl = new GoogleLogin(clientId, clientSecret);
- 
- $('#googleLogin').on('click', function(){
-   gl.startSignin(endLogin);
- });
-
-
-// Callback that fires when login process ends
-function endLogin(result){
-  if(result === -1){
-    // Login was not successful :(
-	    alert('Login error');
-    }else{
-	    // If successful login, alert access_token
-	    alert('Result: ' + result);
+window.plugins.googleplus.login(
+    {
+      'scopes': 'profile',
+      'webClientId': '850431985783-bjmmo06um0i0pcd0ujt2ug0fagjn3te9.apps.googleusercontent.com', // optional clientId of your Web application from Credentials settings of your project - On Android, this MUST be included to get an idToken. On iOS, it is not required.
+      'offline': true, // optional, but requires the webClientId - if set to true the plugin will also return a serverAuthCode, which can be used to grant offline access to a non-Google server
+    },
+    function (obj) {
+      alert(JSON.stringify(obj)); // do something useful instead of alerting
+    },
+    function (msg) {
+      alert('error: ' + msg);
     }
-}
+);
+
+
+
+
+});
+
  
 // End Google login
 </script> 
