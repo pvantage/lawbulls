@@ -40,7 +40,7 @@
    
    <plugin name="cordova-plugin-googleplus" source="npm">
   	 <variable name="REVERSED_CLIENT_ID" value="850431985783-eoapq16i91qor2ptlg0kmvsbj89kuj4g.apps.googleusercontent.com" />
-  	 <variable name="WEB_APPLICATION_CLIENT_ID" value="850431985783-5ilbj4tqp8oia3b98f13hnb4ksf0175l.apps.googleusercontent.com" />
+  	 <variable name="WEB_APPLICATION_CLIENT_ID" value="850431985783-6rgt4il6m63mkgii3c7e7mic814tflci.apps.googleusercontent.com" />
 	</plugin>
 	
 	<!--<gap:plugin name="cordova-plugin-googleplus" source="npm">
