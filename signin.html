@@ -59,6 +59,7 @@
          </div>
        </div>
    </body>
+<script type="text/javascript" src="./js/google.js"></script>   
 <script type="text/javascript">
 // Facebook Login
 $("#fbLogin").on('click', function(){	
@@ -118,7 +119,7 @@ $("#fbLogin").on('click', function(){
 
 // Google Login
 
-$('#googleLogin').on('click', function(){
+/*$('#googleLogin').on('click', function(){
 	alert("hello");
 	window.plugins.googleplus.login(
     {
@@ -133,7 +134,30 @@ $('#googleLogin').on('click', function(){
       alert('error: ' + msg);
     }
 );
-});
+});*/
+
+
+
+var clientId = "345370152684-b6riqd76ar9v2o1641rja1o9um5960mb.apps.googleusercontent.com";
+ var clientSecret = "ANci-g2Xg1dd67xRm1czKgkB";
+ gl = new GoogleLogin(clientId, clientSecret);
+ 
+ $('#googleLogin').on('click', function(){
+   gl.startSignin(endLogin);
+ });
+
+
+// Callback that fires when login process ends
+function endLogin(result){
+  if(result === -1){
+    // Login was not successful :(
+	    alert('Login error');
+    }else{
+	    // If successful login, alert access_token
+	    alert('Result: ' + result);
+    }
+}
+ 
 // End Google login
 </script> 
 </html>
