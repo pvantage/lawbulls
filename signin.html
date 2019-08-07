@@ -12,6 +12,27 @@
     <script type="text/javascript" charset="utf-8" src="cordova.js"></script>   
     <script src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/function.js"></script>
+    
+    <script type="text/javascript">
+	
+	document.addEventListener("deviceready", function(){
+      window.plugins.googleplus.isAvailable(
+				function (available) {
+				  if (available) {
+					alert('Available');
+				  }else{
+						alert("not availanle");  
+					}
+				}
+		);
+ 	
+	
+	},true);
+ 
+ 
+		
+	</script>
+    
      <title>Law Bulls</title>
    </head>
    <body>
