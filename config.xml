@@ -39,8 +39,8 @@
    </plugin>
    
    <plugin name="cordova-plugin-googleplus" source="npm">
-  	 <variable name="REVERSED_CLIENT_ID" value="in.lawbulls.andpkg" />
-  	 <variable name="WEB_APPLICATION_CLIENT_ID" value="850431985783-6rgt4il6m63mkgii3c7e7mic814tflci.apps.googleusercontent.com" />	 
+  	 <variable name="REVERSED_CLIENT_ID" value="850431985783-6rgt4il6m63mkgii3c7e7mic814tflci.apps.googleusercontent.com" />
+  	 <variable name="WEB_APPLICATION_CLIENT_ID" value="AIzaSyBBOVZaoE1DJm7pLxn17YN3ftt6yv7E7uM" />	 
 	</plugin>
 	
 	<!--<gap:plugin name="cordova-plugin-googleplus" source="npm">
