@@ -38,15 +38,15 @@
       <variable name="APP_NAME" value="lawbulls" />
    </plugin>
    
-   <preference name="PLAY_SERVICES_VERSION" default="17.0.0"/>
+   <!--<preference name="PLAY_SERVICES_VERSION" default="17.0.0"/>
 	<framework src="com.google.android.gms:play-services-plus:17.0.0" />
 	<framework src="com.google.android.gms:play-services-auth:17.0.0" />
-	<framework src="com.google.android.gms:play-services-identity:17.0.0" />
+	<framework src="com.google.android.gms:play-services-identity:17.0.0" />-->
    
    <plugin name="cordova-plugin-googleplus" source="npm">
-  	 <variable name="REVERSED_CLIENT_ID" value="850431985783-6rgt4il6m63mkgii3c7e7mic814tflci.apps.googleusercontent.com" />
+  	 <variable name="REVERSED_CLIENT_ID" value="850431985783-rbarnt4m254t4gat0rqemd30r9886bfu.apps.googleusercontent.com" />
   	 <variable name="WEB_APPLICATION_CLIENT_ID" value="AIzaSyBBOVZaoE1DJm7pLxn17YN3ftt6yv7E7uM" />
-	 <variable name="PLAY_SERVICES_VERSION" value="17.0.0" />	 
+	 <variable name="PLAY_SERVICES_VERSION" value="11.8.0" />	 
 	</plugin>	
 	
 	
