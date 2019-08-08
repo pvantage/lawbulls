@@ -108,7 +108,17 @@ $("#fbLogin").on('click', function(){
 					}else if(data['error']){
 						
 						if(data['error']['email']){
-							//alert(data['error']['email']);
+							
+							  var modal = $(".modal");
+							  var body = $(window);							 
+							  var w = modal.width();
+							  var h = modal.height();
+							  // Get window size
+							  var bw = body.width();
+							  var bh = body.height();
+							
+							modal.css({"position": "absolute","top": ((bh - h) / 2) + "px",
+										"left": ((bw - w) / 2) + "px"});
 							
 							$('.modal-body').html(data['error']['email']);                 
                 			$('#msgModal').modal('show');
@@ -121,7 +131,18 @@ $("#fbLogin").on('click', function(){
 		   // END
 		
 		}, function(error) {
-				//alert(error.errorMessage);
+				
+				var modal = $(".modal");
+							  var body = $(window);							 
+							  var w = modal.width();
+							  var h = modal.height();
+							  // Get window size
+							  var bw = body.width();
+							  var bh = body.height();
+							
+							modal.css({"position": "absolute","top": ((bh - h) / 2) + "px",
+										"left": ((bw - w) / 2) + "px"});
+				
 				$('.modal-body').html(error.errorMessage);                 
                 $('#msgModal').modal('show');
 		});
@@ -131,7 +152,18 @@ $("#fbLogin").on('click', function(){
 
         facebookConnectPlugin.login(["public_profile"], fbLoginSuccess,
             function loginError (error) {
-                //alert(error.errorMessage);
+                
+				var modal = $(".modal");
+							  var body = $(window);							 
+							  var w = modal.width();
+							  var h = modal.height();
+							  // Get window size
+							  var bw = body.width();
+							  var bh = body.height();
+							
+							modal.css({"position": "absolute","top": ((bh - h) / 2) + "px",
+										"left": ((bw - w) / 2) + "px"});
+										
 				$('.modal-body').html(error.errorMessage);                 
                 $('#msgModal').modal('show');
             }
