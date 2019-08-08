@@ -586,7 +586,7 @@ div#show_fav_message {
     color: #fff;
     font-size: 22px;
 }
-.top-search input,.top-search input[type="search"] {
+.top-search input {
     width: 100%;
     display: block;
     margin: 0 auto;
@@ -770,8 +770,20 @@ nav.menu {
     padding-top: 20px;
     padding-bottom: 20px;
 }
-.icon-list a:nth-child(2) span {
+/*.icon-list a:nth-child(2) span {
     color: #558066;
+}*/
+.input-div {
+    position: relative;
+}
+.btn-div {
+    position: absolute;
+    right: 0;
+    top: 3px;
+}
+.btn-div .search-btn {
+    background: transparent;
+    border: none;     padding: 6px;
 }
 span.casepro {
     background: #d40c31;
@@ -875,7 +887,9 @@ span.casepro {
     box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.5);
     margin: 25px 0;
     border-radius: 5px;
-	box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    overflow: hidden;
 }
 .botom-imgwithlongcontent {
     padding-top: 30px;
@@ -1199,7 +1213,6 @@ feedbackscreen h6 {
   left:48%; 
 }
 
-.relevant_result{color:#558066;}
 
 
 
