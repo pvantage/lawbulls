@@ -52,13 +52,13 @@
         <param name="APP_NAME" value="Lawbulls" />
     </plugin>-->	
 	
-	<!--<platform name="android">
-    	<preference name="android-minSdkVersion" value="15" />
+	<platform name="android">
+    	<preference name="android-minSdkVersion" value="11" />
 	</platform>
 	
 	<platform name="ios">
   		<preference name="ios-minSdkVersion" value="6" />
-	</platform>-->
+	</platform>
 			
 	<icon src="icon.png" />
 	<icon gap:platform="webos" src="res/icon/ios/Icon-180.png" />
