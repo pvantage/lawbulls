@@ -18,10 +18,9 @@
     </author>	
 	
 	<plugin name="cordova-plugin-device" spec="2.0.1" />
-	<plugin name="cordova-plugin-splashscreen" />
-	<!--<plugin name="cordova-plugin-inappbrowser" spec="~1.7.2" />
+	<plugin name="cordova-plugin-inappbrowser" spec="~1.7.2" />
 				
-	
+	<plugin name="cordova-plugin-splashscreen" />
 	
 	<plugin name="cordova-plugin-x-socialsharing" version="5.4.0" />
 	
@@ -37,24 +36,16 @@
 	<plugin name="cordova-plugin-facebook4" spec="1.7.4" source="npm">
       <variable name="APP_ID" value="364664900872915" />
       <variable name="APP_NAME" value="lawbulls" />
-   </plugin>-->
+   </plugin>
    
    <plugin name="cordova-plugin-googleplus" source="npm">
   	 <variable name="REVERSED_CLIENT_ID" value="850431985783-6rgt4il6m63mkgii3c7e7mic814tflci.apps.googleusercontent.com" />
   	 <variable name="WEB_APPLICATION_CLIENT_ID" value="AIzaSyBBOVZaoE1DJm7pLxn17YN3ftt6yv7E7uM" />	 
-	</plugin>
+	</plugin>	
 	
-	<!--<gap:plugin name="cordova-plugin-googleplus" source="npm">
-  		<param name="REVERSED_CLIENT_ID" value="605980070191-h41pio74e2bi8b8gj1df8qose4hvp5kd.apps.googleusercontent.com" />
-	</gap:plugin>-->
-	
-	<!--<plugin name="cordova-plugin-facebook4" spec="1.7.4">
-        <param name="APP_ID" value="470699603728461" />
-        <param name="APP_NAME" value="Lawbulls" />
-    </plugin>-->	
 	
 	<platform name="android">
-    	<preference name="android-minSdkVersion" value="15" />
+    	<preference name="android-minSdkVersion" value="19" />
 		<preference name="android-targetSdkVersion" value="28" />
 	</platform>
 	
