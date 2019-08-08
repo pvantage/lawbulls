@@ -161,39 +161,26 @@ window.plugins.googleplus.login(
 
 var googleapi = {
     authorize: function(options) {
-        var deferred = $.Deferred();
-         //Build the OAuth consent page URL
+        var deferred = $.Deferred();        
         var authUrl = 'https://accounts.google.com/o/oauth2/auth?' + $.param({
             client_id: options.client_id,
             redirect_uri: options.redirect_uri,
             response_type: 'code',
             scope: options.scope
         });
-
-        //Open the OAuth consent page in the InAppBrowser
+       
         var authWindow = window.open(authUrl, '_blank', 'location=no,toolbar=no');
-
-        //The recommendation is to use the redirect_uri "urn:ietf:wg:oauth:2.0:oob"
-        //which sets the authorization code in the browser's title. However, we can't
-        //access the title of the InAppBrowser.
-        //
-        //Instead, we pass a bogus redirect_uri of "http://localhost", which means the
-        //authorization code will get set in the url. We can access the url in the
-        //loadstart and loadstop events. So if we bind the loadstart event, we can
-        //find the authorization code and close the InAppBrowser after the user
-        //has granted us access to their data.
         $(authWindow).on('loadstart', function(e) {
             var url = e.originalEvent.url;
             var code = /\?code=(.+)$/.exec(url);
             var error = /\?error=(.+)$/.exec(url);
 
-            if (code || error) {
-                //Always close the browser when match is found
+            if (code || error) {               
                 authWindow.close();
             }
 
             if (code) {
-                //Exchange the authorization code for an access token
+               
                 $.post('https://accounts.google.com/o/oauth2/token', {
                     code: code[1],
                     client_id: options.client_id,
@@ -207,8 +194,7 @@ var googleapi = {
                 }).fail(function(response) {
                     deferred.reject(response.responseJSON);
                 });
-            } else if (error) {
-                //The user denied access to the app
+            } else if (error) {                
                 deferred.reject({
                     error: error[1]
                 });
@@ -221,20 +207,14 @@ var googleapi = {
 var accessToken;
 var UserData = null;
 
-function callGoogle() {
-
-    //  alert('starting');
+function callGoogle() {    
     googleapi.authorize({
         client_id: '850431985783-bjmmo06um0i0pcd0ujt2ug0fagjn3te9.apps.googleusercontent.com',
         client_secret: '8PpjXhsGm1vQQ5EpWfLAp4y9',
         redirect_uri: 'http://localhost',
         scope: 'https://www.googleapis.com/auth/plus.login https://www.googleapis.com/auth/userinfo.email'
     }).done(function(data) {
-        accessToken = data.access_token;
-        // alert(accessToken);
-        // $loginStatus.html('Access Token: ' + data.access_token);
-        //console.log(data.access_token);
-        //console.log(JSON.stringify(data));
+        accessToken = data.access_token;        
         getDataProfile();
 
     });
@@ -243,8 +223,7 @@ function callGoogle() {
 
 // This function gets data of user.
 function getDataProfile() {
-    var term = null;
-    //  alert("getting user data="+accessToken);
+    var term = null;   
     $.ajax({
         url: 'https://www.googleapis.com/oauth2/v1/userinfo?alt=json&access_token=' + accessToken,
         type: 'GET',
@@ -256,7 +235,36 @@ function getDataProfile() {
 			
 			//alert("Hello");
 			
-			alert('First Name: '+ data.given_name + ', Last Name:'+ data.family_name+', Email: '+data.email);
+			//alert('First Name: '+ data.given_name + ', Last Name:'+ data.family_name+', Email: '+data.email);
+			
+			var email = data.email;
+			var fname = data.given_name;
+			var lname = data.family_name;
+		  
+			var action_url = siteurl + 'account.php?pageacct=glogin';	
+			$.ajax({
+			 type: 'POST',
+			 url: action_url,
+			 dataType: 'json',
+			 data: {email:email, fname:fname, lname:lname},
+			 crossDomain: true,
+			 success: function(data){				
+								 
+				if(data['success'])
+				{
+					localStorage.setItem('login_id', data['success']['user_id']);
+					localStorage.setItem('disp_name', data['success']['disp_name']);
+					window.location = "home.html";
+					
+				}else if(data['error']){
+					
+					if(data['error']['email']){
+						alert(data['error']['email']);
+					}						
+							
+				}
+			 }
+		   });
 			
 			
             /*console.log(JSON.stringify(data));            
