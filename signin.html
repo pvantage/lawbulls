@@ -217,9 +217,9 @@ function getDataProfile() {
         success: function(data) {
             var item;
 			
-			//alert("Hello");
 			
-			//alert('First Name: '+ data.given_name + ', Last Name:'+ data.family_name+', Email: '+data.email);
+			
+			
 			
 			var email = data.email;
 			var fname = data.given_name;
@@ -233,7 +233,7 @@ function getDataProfile() {
 			 data: {email:email, fname:fname, lname:lname},
 			 crossDomain: true,
 			 success: function(data){				
-				$('#loader').hide();				 
+				//$('#loader').hide();				 
 				if(data['success'])
 				{
 					localStorage.setItem('login_id', data['success']['user_id']);
