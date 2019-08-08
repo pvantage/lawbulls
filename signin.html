@@ -29,19 +29,11 @@
 					}
 				}
 		);
- 	
-	
 	},true);
- 
-	
- 
-		
 	</script>
-    
-     <title>Law Bulls</title>
-   </head>
-   <body>
-  
+  <title>Law Bulls</title>
+ </head>
+<body>
    <div class="sign_inscreen">
       <div class="top-header">
          <div class="container">
@@ -165,9 +157,7 @@ $('#googleLogin').on('click', function(){
 
 window.plugins.googleplus.login(
     {
-      'scopes': 'profile',
-      'webClientId': '850431985783-6rgt4il6m63mkgii3c7e7mic814tflci.apps.googleusercontent.com',
-      'offline': true
+      'scopes': 'email profile'      
     },
     function (obj) {
       alert('Success: ' + JSON.stringify(obj)); // do something useful instead of alerting
