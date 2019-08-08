@@ -43,7 +43,7 @@
 	<framework src="com.google.android.gms:play-services-auth:17.0.0" />
 	<framework src="com.google.android.gms:play-services-identity:17.0.0" />
    
-   <plugin name="cordova-plugin-googleplus" source="npm">
+   <plugin name="cordova-plugin-googleplus" spec="^5.2.1">
   	 <variable name="REVERSED_CLIENT_ID" value="850431985783-6rgt4il6m63mkgii3c7e7mic814tflci.apps.googleusercontent.com" />
   	 <variable name="WEB_APPLICATION_CLIENT_ID" value="AIzaSyBBOVZaoE1DJm7pLxn17YN3ftt6yv7E7uM" />	 
 	</plugin>	
