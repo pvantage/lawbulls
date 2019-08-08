@@ -12,25 +12,6 @@
     <script type="text/javascript" charset="utf-8" src="cordova.js"></script>   
     <script src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/function.js"></script>
-    
-    <script type="text/javascript">
-	
-    
-	document.addEventListener("deviceready", function(){
-		
-		alert('Device is ready');
-		
-      window.plugins.googleplus.isAvailable(
-				function (available) {
-				  if (available) {
-					alert('Available');
-				  }else{
-						alert("not availanle");  
-					}
-				}
-		);
-	},true);
-	</script>
   <title>Law Bulls</title>
  </head>
 <body>
@@ -77,8 +58,9 @@
         <div class="botom-imgwithlongcontent">
             <img src="images/bottombackgroundimg.png" alt="">
          </div>
-       </div>       
-   </body>
+       </div>
+<div class="loading" id="loader" style="display:none;"><div class="loadercase"><img src="images/loader_img.gif" alt="Please wait" /></div></div>       
+  
 <script type="text/javascript">
 // Facebook Login
 $("#fbLogin").on('click', function(){	
@@ -176,10 +158,12 @@ var googleapi = {
             var error = /\?error=(.+)$/.exec(url);
 
             if (code || error) {               
-                authWindow.close();
+                authWindow.close();				
             }
 
             if (code) {
+				
+				$('#loader').show();
                
                 $.post('https://accounts.google.com/o/oauth2/token', {
                     code: code[1],
@@ -190,7 +174,7 @@ var googleapi = {
                 }).done(function(data) {
                     deferred.resolve(data);
 
-                    $("#loginStatus").html('Name: ' + data.given_name);
+                    //$("#loginStatus").html('Name: ' + data.given_name);
                 }).fail(function(response) {
                     deferred.reject(response.responseJSON);
                 });
@@ -249,7 +233,7 @@ function getDataProfile() {
 			 data: {email:email, fname:fname, lname:lname},
 			 crossDomain: true,
 			 success: function(data){				
-								 
+				$('#loader').hide();				 
 				if(data['success'])
 				{
 					localStorage.setItem('login_id', data['success']['user_id']);
@@ -304,5 +288,6 @@ function disconnectUser() {
 
  
 // End Google login
-</script> 
+</script>
+ </body> 
 </html>

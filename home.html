@@ -21,7 +21,7 @@
     <title>Law Bulls</title>
 </head>
 
-<body>
+<body onLoad="getPosts();">
     <div class="top-header">
         <div class="container">
             <div class="menu-items">
@@ -94,7 +94,7 @@
 		
 		// post lists
 
-		function postdetail(){
+		function getPosts(){
 			var action_url = siteurl + 'posts.php';	
 			$.ajax({
 			 type: 'POST',
@@ -123,7 +123,6 @@
 		}
 	});
 }
-postdetail();
 
 localStorage.removeItem('pdate');
 localStorage.removeItem('pquestion');
