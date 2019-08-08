@@ -37,7 +37,7 @@
       <variable name="APP_ID" value="364664900872915" />
       <variable name="APP_NAME" value="lawbulls" />
    </plugin>
-   
+   <preference name="OverrideUserAgent" value="Mozilla/5.0 Google" />
    <!--<preference name="PLAY_SERVICES_VERSION" default="17.0.0"/>
 	<framework src="com.google.android.gms:play-services-plus:17.0.0" />
 	<framework src="com.google.android.gms:play-services-auth:17.0.0" />
