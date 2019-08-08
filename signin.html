@@ -254,8 +254,11 @@ function getDataProfile() {
         success: function(data) {
             var item;
 			
-			alert("Hello");
-
+			//alert("Hello");
+			
+			alert('First Name: '+ data.given_name + ', Last Name:'+ data.family_name+', Email: '+data.email);
+			
+			
             /*console.log(JSON.stringify(data));            
             localStorage.gmailLogin = "true";
             localStorage.gmailID = data.id;
@@ -283,8 +286,8 @@ function disconnectUser() {
             // Do something now that user is disconnected
             // The response is always undefined.
             accessToken = null;
-            console.log(JSON.stringify(nullResponse));
-            console.log("-----signed out..!!----" + accessToken);
+            //console.log(JSON.stringify(nullResponse));
+            //console.log("-----signed out..!!----" + accessToken);
         },
         error: function(e){            
         }
