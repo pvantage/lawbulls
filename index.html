@@ -100,6 +100,15 @@ $(document).ready(function(e){
 	}else{
 		
 		$('#msgModal').modal('show');
+		
+		setInterval(function(){
+			
+			if(window.navigator.onLine && localStorage.getItem("login_id") == null){
+			   window.location = 'signin.html';
+			 }else if(window.navigator.onLine && localStorage.getItem("login_id") > 0){
+				window.location = 'home.html';
+			 }			
+		}, 2000);
 	}
 	
 });
