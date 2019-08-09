@@ -41,7 +41,7 @@ function gotoLogin(){
 
 // Account login
 
-function loginMe(){
+$('#login_account').on('click,touchend', function(){
 	var action_url = siteurl + 'account.php?pageacct=login';	
 	$.ajax({
 	 type: 'POST',
@@ -70,7 +70,7 @@ function loginMe(){
 		}
 	 }
    });
-}
+});
 
 // Register account
 
@@ -195,8 +195,7 @@ function removeFav(post_id){
 			$('#show_fav_message').hide();
 		
 		 }, 4000);
-		 
-	 }
+	  }
 	 }
    });
 }
@@ -204,34 +203,27 @@ function removeFav(post_id){
 // remove favorite
 
 function addFav(post_id){
-	var action_url = siteurl + 'getcontent.php';	
+	var action_url = siteurl + 'getcontent.php';
 	$.ajax({
 	 type: 'POST',
 	 url: action_url,
 	 dataType: 'json',
 	 data: {post_id : post_id, getaction: 'add_fav', user_id: localStorage.getItem("login_id")},
 	 crossDomain: true,
-	 success: function(data){	 		 		 
-	   
+	 success: function(data){
 	   if(data['msg']){
-		   
 		 $('#img-'+post_id).attr('src', 'images/selected-favourite.png');
-		 $('#img-'+post_id).attr("onclick", 'removeFav("'+post_id+'", "img-'+post_id+'")'); 
-		   			
-		$('#show_fav_message').html(data['msg']);		
-		$('#show_fav_message').show();
+		 $('#img-'+post_id).attr("onclick", 'removeFav("'+post_id+'", "img-'+post_id+'")');		   			
+		 $('#show_fav_message').html(data['msg']);		
+		 $('#show_fav_message').show();
 		
 		setTimeout(function(){ 
-			$('#show_fav_message').hide();
-		
-		 }, 4000);
-		 
-	   }
-		 
+			$('#show_fav_message').hide();		
+		 }, 4000);		 
+	   }		 
 	 }
    });
 }
-
 
 // My Favorites posts
 
