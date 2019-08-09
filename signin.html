@@ -10,7 +10,8 @@
     <link rel="stylesheet" type="text/css" href="css/normalize.css">
     <script src="js/jquery.js"></script>
     <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
-    <script src="js/bootstrap.min.js"></script>    
+    <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/function.js"></script>
   <title>Law Bulls</title>
  </head>
 <body>
@@ -34,7 +35,7 @@
                   <input type="password" placeholder="Password" name="login_password" id="login_password">
                </div>
                <div class="login-button">
-                  <button class="button loginbtn" type="button" id="login_account">Login</button>
+                  <button class="button loginbtn" type="button" onClick="loginMe();">Login</button>
                   <button class="button forgotpasswordbtn" type="button" onClick="goforgotPassword();">Forgot Password</button>
                </div>
             </form>
@@ -44,7 +45,7 @@
         <div class="loginwithsocial">
          <button class="button facebookbtn" type="button" id="fbLogin"><i class="fa fa-facebook" aria-hidden="true"></i> Log in with facebook</button>
          
-<button class="button googlebtn" id="googleLogin" type="button" onClick="callGoogle();"><i class="fa fa-google" aria-hidden="true"></i> Log in with google</button>
+        <button class="button googlebtn" id="googleLogin" type="button" onClick="callGoogle();"><i class="fa fa-google" aria-hidden="true"></i> Log in with google </button>
         </div>
         <div class="signupdiv">
            <a class="button signupbtn" href="signup.html">Sign Up</a>
@@ -55,8 +56,7 @@
             <img src="images/bottombackgroundimg.png" alt="">
          </div>
   </div>
-  
-<div class="modal fade" id="msgModal" role="dialog">
+ <div class="modal fade" id="msgModal" role="dialog">
 <div class="modal-dialog">
     <div class="modal-content">
         <div class="modal-header">
@@ -67,7 +67,6 @@
 </div>
 </div>       
 <div class="loading" id="loader" style="display:none;"><div class="loadercase"><img src="images/loader_img.gif" alt="Please wait" /></div></div>
-<script type="text/javascript" src="js/function.js"></script>
 <script type="text/javascript">
 // Facebook Login
 $("#fbLogin").on('click', function(){
@@ -273,13 +272,19 @@ function disconnectUser() {
         async: false,
         contentType: "application/json",
         dataType: 'jsonp',
-        success: function(nullResponse){            
-            accessToken = null;            
+        success: function(nullResponse) {
+            // Do something now that user is disconnected
+            // The response is always undefined.
+            accessToken = null;
+            //console.log(JSON.stringify(nullResponse));
+            //console.log("-----signed out..!!----" + accessToken);
         },
-        error: function(e){
-      }
-   });
+        error: function(e){            
+        }
+    });
 }
+
+ 
 // End Google login
 </script>
  </body> 

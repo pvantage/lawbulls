@@ -41,7 +41,7 @@ function gotoLogin(){
 
 // Account login
 
-$('#login_account').on('click,touchend', function(){
+function loginMe(){
 	var action_url = siteurl + 'account.php?pageacct=login';	
 	$.ajax({
 	 type: 'POST',
@@ -70,7 +70,7 @@ $('#login_account').on('click,touchend', function(){
 		}
 	 }
    });
-});
+}
 
 // Register account
 
