@@ -45,7 +45,7 @@
         <div class="loginwithsocial">
          <button class="button facebookbtn" type="button" id="fbLogin"><i class="fa fa-facebook" aria-hidden="true"></i> Log in with facebook</button>
          
-        <button class="button googlebtn" id="googleLogin" type="button" onClick="callGoogle();"><i class="fa fa-google" aria-hidden="true"></i> Log in with google </button>
+<button class="button googlebtn" id="googleLogin" type="button" onClick="callGoogle();"><i class="fa fa-google" aria-hidden="true"></i> Log in with google</button>
         </div>
         <div class="signupdiv">
            <a class="button signupbtn" href="signup.html">Sign Up</a>
@@ -56,7 +56,8 @@
             <img src="images/bottombackgroundimg.png" alt="">
          </div>
   </div>
- <div class="modal fade" id="msgModal" role="dialog">
+  
+<div class="modal fade" id="msgModal" role="dialog">
 <div class="modal-dialog">
     <div class="modal-content">
         <div class="modal-header">
@@ -99,8 +100,7 @@ $("#fbLogin").on('click', function(){
 							
 							$('.modal_content').html(data['error']['email']);                 
                 			$('#msgModal').modal('show');
-						}						
-								
+						}
 					}
 				 }
 			   });
@@ -273,19 +273,13 @@ function disconnectUser() {
         async: false,
         contentType: "application/json",
         dataType: 'jsonp',
-        success: function(nullResponse) {
-            // Do something now that user is disconnected
-            // The response is always undefined.
-            accessToken = null;
-            //console.log(JSON.stringify(nullResponse));
-            //console.log("-----signed out..!!----" + accessToken);
+        success: function(nullResponse){            
+            accessToken = null;            
         },
-        error: function(e){            
-        }
-    });
+        error: function(e){
+      }
+   });
 }
-
- 
 // End Google login
 </script>
  </body> 

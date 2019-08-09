@@ -16,11 +16,10 @@
     <script src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/function.js"></script>
     <script type="text/javascript">
-		checkLogin();
+		checkLogin();		
 	</script>
     <title>Law Bulls</title>
 </head>
-
 <body onLoad="getPosts();">
     <div class="top-header">
         <div class="container">
@@ -85,16 +84,19 @@
 
 <div class="loading" id="loader"><div class="loadercase"><img src="images/loader_img.gif" alt="Please wait" /></div></div>
 
-    <script src="js/classie.js"></script>
+<script src="js/classie.js"></script>
     <script src="js/main.js"></script>
     <script src="js/swiper.min.js"></script>
     <script src="js/aos.js"></script>
     <script type="text/javascript">
-		getLoginname();		
-		
+		getLoginname();	
 		// post lists
 
 		function getPosts(){
+			
+			
+			if(window.navigator.onLine){ // IF internet available
+			
 			var action_url = siteurl + 'posts.php';	
 			$.ajax({
 			 type: 'POST',
@@ -105,10 +107,14 @@
 			 success: function(data){			 	 		 		 
 					
 			$('#swiper_post_data').html(data['content']);
+			
+			localStorage.setItem('home_content', data['content']);
+			localStorage.setItem('home_category', data['category']);
+			
 			var menu = data['category'];
 						
             var mySwiper = new Swiper('.swiper-container', {
-            autoHeight: true,            
+            autoHeight: true,			
             pagination: {
                 el: '.swiper-pagination',
                 clickable: true,
@@ -118,20 +124,48 @@
             },
 
         });
-					AOS.init();
-					$('#loader').remove();
+			AOS.init();
+			$('#loader').remove();
 		}
 	});
+	
+	}else{
+		// Load off line data
+		
+		if(localStorage.getItem("home_category") != null){
+			
+			$('#swiper_post_data').html(localStorage.getItem("home_content"));
+			var menu = localStorage.getItem("home_category");
+							
+				var mySwiper = new Swiper('.swiper-container', {
+				autoHeight: true,			
+				pagination: {
+					el: '.swiper-pagination',
+					clickable: true,
+					renderBullet: function(index, className) {
+						return '<span class="' + className + '">' + (menu[index]) + '</span>';
+					},
+				},
+	
+			});
+				AOS.init();
+				
+			
+		}else{
+				$('#swiper_post_data').html('<p style="padding-left:20px;">Sorry, no results found.</p>');
+			
+		}			
+		
+		$('#loader').remove();
+	}
 }
-
 localStorage.removeItem('pdate');
 localStorage.removeItem('pquestion');
 localStorage.removeItem('pcomment');
 localStorage.removeItem('pamount');
 localStorage.removeItem('trnx_id');
 localStorage.removeItem('pname');
-localStorage.removeItem('ctype');
-	
+localStorage.removeItem('ctype');	
 </script>    
 </body>
 </html>
