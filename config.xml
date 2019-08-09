@@ -57,8 +57,8 @@
 	
 	
 	<platform name="android">
-    	<preference name="android-minSdkVersion" value="19" />
-		<preference name="android-targetSdkVersion" value="28" />
+    	<preference name="android-minSdkVersion" value="15" />
+		<!--<preference name="android-targetSdkVersion" value="28" />-->
 	</platform>
 	
 	<platform name="ios">
