@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en">
-   <head>      
+   <head>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">      
       <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -33,7 +33,7 @@
                   </div>
                   <nav class="menu">
                      <div class="icon-list">   
-                        <a href="home.html"><img src="images/home.png" alt="" /><span>Home</span></a>
+                        <a href="home.html"><img src="images/home.png" alt=""><span>Home</span></a>
                         <a href="casefinder.html"><img src="images/hammer_icon.png" alt="" /><span>Case finder <span class="casepro">Pro</span></span></a>
                         <a href="favourite.html"><img src="images/favourite_icon.png" alt="" /><span>Favorites</span></a>
                         <a href="myorder.html"><img src="images/order_icon.png" alt="" /><span>My Orders</span></a>
@@ -51,18 +51,17 @@
                         <ul class="menu-social">
                            <li><a href="https://www.facebook.com/LawBullsIndia" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
                            <li><a href="https://www.instagram.com/lawbulls" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                           <li><a href="#" target="_blank"><i class="fa fa-snapchat-ghost" aria-hidden="true"></i></a></li>
+                           <li><a href="https://twitter.com/LawBulls" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
                         </ul>
                      </div>
                   </div>
                   <button class="close-button" id="close-button">Close Menu</button>
                </div>
-               
                <div class="logo-div">
                   <a href="home.html"><img src="images/applogo.png" alt="Law Bulls" /></a>
                </div>
                <div class="search-div">
-                   <a href="search.html"> <img src="images/searchicon.png" alt="" /></a>
+                   <a href="search.html"> <img src="images/searchicon.png" alt=""></a>
                </div>
             </div>
          </div>
@@ -114,7 +113,7 @@
 getLoginname();
 getPlans();
 
-$(document).ready(function(){	
+$(document).ready(function(){
 	
     if(localStorage.getItem("pdate") != null){
 		$('#date_range').val(localStorage.getItem("pdate"));
@@ -126,8 +125,7 @@ $(document).ready(function(){
 	
 	if(localStorage.getItem("pcomment") != null){
 		$('#case_comments').val(localStorage.getItem("pcomment"));
-	}	
-	
+	}
 });
 
 function clearForm(){
@@ -142,10 +140,10 @@ function clearForm(){
 	localStorage.removeItem('trnx_id');
 	localStorage.removeItem('pname');
 	localStorage.removeItem('ctype');
-} 
+}
 
 function paymentProceed(){
-	var action_url = siteurl + 'case_finders.php';	
+	var action_url = siteurl + 'case_finders.php';
 	$.ajax({
 	 type: 'POST',
 	 url: action_url,
@@ -167,11 +165,8 @@ function paymentProceed(){
 			
 			window.location = 'payment.html?trnx_id=' + data['success']['tranx_id'] + '&pamt='+data['success']['pamount'];
 			
-		}else if(data['error']){
-			
-						
-			if(data['error']['case_type']){
-				
+		}else if(data['error']){			
+			if(data['error']['case_type']){				
 				$('#case_type').after('<span class="error text-danger">' + data['error']['case_type'] + '</span>');
 			}
 			
@@ -189,10 +184,10 @@ function paymentProceed(){
 			
 			if(data['error']['case_comments']){
 				$('#case_comments').after('<span class="error text-danger">' + data['error']['case_comments'] + '</span>');
-			}			
+			}
 		}
 	 }
-   });	
+   });
 }
 </script>
    </body>

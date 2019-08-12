@@ -1,10 +1,8 @@
 <!doctype html>
 <html lang="en">
-   <head>
-      <!-- Required meta tags -->
+   <head>      
       <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-      <!-- Bootstrap CSS -->
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">      
       <link rel="stylesheet" href="css/bootstrap.min.css">
       <link rel="stylesheet" href="css/style.css?v=1">
       <link rel="stylesheet" href="css/font-awesome.min.css">
@@ -19,14 +17,13 @@
         <script type="text/javascript">
             checkLogin();
         </script>
-        
    </head>
-   <body>
-   <div class="feedback_screen">
-      <div class="top-header">
-         <div class="container">
-            <div class="menu-items">
-               <div class="mobile-menu">
+<body>
+ <div class="feedback_screen">
+   <div class="top-header">
+     <div class="container">
+        <div class="menu-items">
+           <div class="mobile-menu">
                   <img src="images/hamburger-icon.png" alt="Law Bulls" id="open-button">
                </div>
                <div class="menu-wrap">
@@ -35,7 +32,7 @@
                      <span class="username"></span>
                   </div>
                   <nav class="menu">
-                     <div class="icon-list">   
+                     <div class="icon-list">
                         <a href="home.html"><img src="images/home.png" alt="" /><span>Home</span></a>
                         <a href="casefinder.html"><img src="images/hammer_icon.png" alt="" /><span>Case finder <span class="casepro">Pro</span></span></a>
                         <a href="favourite.html"><img src="images/favourite_icon.png" alt="" /><span>Favorites</span></a>
@@ -54,17 +51,17 @@
                         <ul class="menu-social">
                            <li><a href="https://www.facebook.com/LawBullsIndia" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
                            <li><a href="https://www.instagram.com/lawbulls" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                           <li><a href="#" target="_blank"><i class="fa fa-snapchat-ghost" aria-hidden="true"></i></a></li>
+                           <li><a href="https://twitter.com/LawBulls" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
                         </ul>
                      </div>
                   </div>
                   <button class="close-button" id="close-button">Close Menu</button>
-               </div> 
+               </div>
                <div class="logo-div">
                   <a href="home.html"><img src="images/applogo.png" alt="" /></a>
                </div>
                <div class="search-div">
-                  <a href="search.html"> <img src="images/searchicon.png" alt="" /></a>
+                  <a href="search.html"><img src="images/searchicon.png" alt="" /></a>
                </div>
             </div>
          </div>
@@ -137,9 +134,8 @@ $(document).ready(function() {
 	   	if(data['success'])
 		{	
 			$('#feedback_form input[type=text],#feedback_form input[type=email]').val('');
-			$('#feedback_form textarea').val('');		
+			$('#feedback_form textarea').val('');
 			$('.sucessmmessage').html(data['success']);
-				
 		}else if(data['error']){
 			
 			if(data['error']['cust_name']){
@@ -156,13 +152,11 @@ $(document).ready(function() {
 			
 			if(data['error']['cust_feedback']){
 				$('#cust_feedback').after('<span class="error text-danger">' + data['error']['cust_feedback'] + '</span>');
-			}			
-		}
-	 }
-   });
-		
+			}
+		  }
+	    }
+      });
    });
 });
-
 </script>
 </html>
