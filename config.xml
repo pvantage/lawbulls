@@ -42,32 +42,18 @@
    
    
     <platform name="android">
-    <!--<plugin name="cordova-android-support-gradle-release" spec="https://github.com/dpa99c/cordova-android-support-gradle-release.git" />-->
+   
     <plugin name="phonegap-plugin-push" spec="2.1.3">
         <param name="SENDER_ID" value="1:143349984306:android:23c35663eabef816" />
     </plugin>
-    <!--<plugin name="cordova-android-play-services-gradle-release" spec="https://github.com/dpa99c/cordova-android-play-services-gradle-release.git" />
-    <plugin name="cordova-android-firebase-gradle-release" spec="https://github.com/dpa99c/cordova-android-firebase-gradle-release.git"/>-->
-    <resource-file src="google-services.json">
+    
 </platform>
 
 <platform name="ios">
     <plugin name="phonegap-plugin-push">
         <param name="SENDER_ID" value="1:143349984306:ios:8886c7b98a19c24e" />
-    </plugin>
-    <resource-file src="GoogleService-Info.plist" />
+    </plugin>    
 </platform>
-   
-   <!--<preference name="PLAY_SERVICES_VERSION" default="17.0.0"/>
-	<framework src="com.google.android.gms:play-services-plus:17.0.0" />
-	<framework src="com.google.android.gms:play-services-auth:17.0.0" />
-	<framework src="com.google.android.gms:play-services-identity:17.0.0" />-->
-   
-   <!--<plugin name="cordova-plugin-googleplus" source="npm">
-  	 <variable name="REVERSED_CLIENT_ID" value="850431985783-rbarnt4m254t4gat0rqemd30r9886bfu.apps.googleusercontent.com" />
-  	 <variable name="WEB_APPLICATION_CLIENT_ID" value="AIzaSyBBOVZaoE1DJm7pLxn17YN3ftt6yv7E7uM" />
-	 <variable name="PLAY_SERVICES_VERSION" value="11.8.0" />	 
-	</plugin>-->	
 	
 	
 	<platform name="android">
