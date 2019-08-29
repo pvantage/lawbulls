@@ -39,10 +39,7 @@
    </plugin>
    <preference name="OverrideUserAgent" value="Mozilla/5.0 Google" />
    
-   <platform name="ios">     
-      <preference name="target-device" value="handset" />
-    </platform> <!-- target device handset only -->
-   
+     
    
    <!--<preference name="PLAY_SERVICES_VERSION" default="17.0.0"/>
 	<framework src="com.google.android.gms:play-services-plus:17.0.0" />

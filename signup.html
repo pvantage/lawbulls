@@ -13,6 +13,25 @@
       <script src="js/bootstrap.min.js" type="text/javascript"></script>
       <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
       <script type="text/javascript" src="js/function.js"></script>
+      
+      <script type="text/javascript">
+    
+    document.addEventListener("deviceready", onDeviceReady, false);
+
+    function onDeviceReady() { 
+       //console.log(device); 
+       //console.log(device.name); 
+       //console.log(device.uuid ); 
+	   
+	   var show_info = "Model: "+device.model + "\n";
+	   show_info += "UUID: "+device.uuid + "\n";
+	   show_info += "UUID: "+device.platform;
+	   
+	   alert(show_info);
+    }
+
+    </script>
+    
    </head>
    <body>
    <div class="sign_inscreen">
