@@ -80,7 +80,7 @@ function registerMe(){
 	 type: 'POST',
 	 url: action_url,
 	 dataType: 'json',
-	 data: $('#account_register input[type=\'text\'], #account_register input[type=\'email\'], #account_register input[type=\'password\'], #account_register input[type=\'number\']'),
+	 data: $('#account_register input[type=\'text\'], #account_register input[type=\'email\'], #account_register input[type=\'password\'], #account_register input[type=\'number\'], #account_register input[type=\'hidden\']'),
 	 crossDomain: true,
 	 success: function(data){
 		 

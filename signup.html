@@ -17,8 +17,8 @@
 <script type="text/javascript">
 var device_id, reg_id, device_type;
 function getDevice(){
-	device_type = device.platform;
-	device_id = device.uuid;
+	var device_type = device.platform;
+	var device_id = device.uuid;
 	
 	var push = PushNotification.init({ "android": {"senderID": "143349984306"}, "ios": {"alert": "true", "badge": "true", "sound": "true"}, "windows": {}});
 		
@@ -29,7 +29,7 @@ function getDevice(){
 			/*var msg = 'Device Type: '+ device_type + "\n";			
 			    msg += 'Registration ID: '+reg_id;*/
 				
-				alert(reg_id);
+				
 		});	
 }
 document.addEventListener("deviceready", getDevice, false);
