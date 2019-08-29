@@ -15,22 +15,21 @@
       <script type="text/javascript" src="js/function.js"></script>
       
       <script type="text/javascript">
-    
-    document.addEventListener("deviceready", onDeviceReady, false);
-
-    function onDeviceReady() { 
-       //console.log(device); 
-       //console.log(device.name); 
-       //console.log(device.uuid ); 
-	   
-	   var show_info = "Model: "+device.model + "\n";
-	   show_info += "UUID: "+device.uuid + "\n";
-	   show_info += "UUID: "+device.platform;
-	   
-	   alert(show_info);
-    }
-
-    </script>
+var device_id, reg_id, device_type;
+function getDevice(){
+	device_type = device.platform;
+	device_id = device.uuid;
+	
+	var push = PushNotification.init({ "android": {"senderID": "143349984306"}, "ios": {"alert": "true", "badge": "true", "sound": "true"}, "windows": {}});
+		
+		push.on('registration', function(data)
+		{						
+			reg_id = data.registrationId;			
+			
+		});	
+}
+document.addEventListener("deviceready", getDevice, false);
+</script>
     
    </head>
    <body>

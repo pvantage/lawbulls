@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "143349984306",
+    "firebase_url": "https://lawbulls-push.firebaseio.com",
+    "project_id": "lawbulls-push",
+    "storage_bucket": "lawbulls-push.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:143349984306:android:23c35663eabef816",
+        "android_client_info": {
+          "package_name": "com.lawbulls.in"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "143349984306-86s38b42vpqqulgtlu7eroaequdr3i74.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD-x8nleflty8yK9cXWMeNzrgvgdEYIte8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "143349984306-86s38b42vpqqulgtlu7eroaequdr3i74.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
