@@ -14,7 +14,7 @@
       <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
       <script type="text/javascript" src="js/function.js"></script>
       
-      <script type="text/javascript">
+<script type="text/javascript">
 var device_id, reg_id, device_type;
 function getDevice(){
 	device_type = device.platform;
@@ -24,12 +24,12 @@ function getDevice(){
 		
 		push.on('registration', function(data)
 		{						
-			reg_id = data.registrationId;
+			var reg_id = data.registrationId;
 			
-			var msg = 'Device Type: '+ device_type + "\n";			
-			    msg += 'Registration ID: '+reg_id;
+			/*var msg = 'Device Type: '+ device_type + "\n";			
+			    msg += 'Registration ID: '+reg_id;*/
 				
-				alert(msg);
+				alert(reg_id);
 		});	
 }
 document.addEventListener("deviceready", getDevice, false);
