@@ -12,6 +12,27 @@
     <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/function.js"></script>
+  <script type="text/javascript">
+
+function getDevice(){
+	var device_type = device.platform;
+	var device_id = device.uuid;
+	
+	var push = PushNotification.init({ "android": {"senderID": "143349984306"}, "ios": {"alert": "true", "badge": "true", "sound": "true"}, "windows": {}});
+		
+		push.on('registration', function(data)
+		{						
+			var reg_id = data.registrationId;
+			
+			/*var msg = 'Device Type: '+ device_type + "\n";			
+			    msg += 'Registration ID: '+reg_id;*/
+			$('#device_reg_id').val(reg_id);
+			$('#device_type').val(device_type);	
+				
+		});	
+}
+document.addEventListener("deviceready", getDevice, false);
+</script>
   <title>Law Bulls</title>
  </head>
 <body>
@@ -28,6 +49,8 @@
       <div class="signinform">
          <div class="container">
             <form id="account_login">
+            <input type="hidden" name="device_reg_id" id="device_reg_id" value="">
+            <input type="hidden" name="device_type" id="device_type" value="">
                <div class="form-group">
                   <input type="text" placeholder="Username/Email Address" name="login_id" id="login_id">
                </div>
@@ -76,13 +99,15 @@ $("#fbLogin").on('click', function(){
 		  
 		      var fb_email = data.email;
 			  var fb_name = data.name;
+			  var post_device_reg_ids = $('#device_reg_id').val();
+			  var post_device_type = $('#device_type').val();			  
 		  
 				var action_url = siteurl + 'account.php?pageacct=fblogin';	
 				$.ajax({
 				 type: 'POST',
 				 url: action_url,
 				 dataType: 'json',
-				 data: {email:fb_email, name:fb_name},
+				 data: {email:fb_email, name:fb_name, device_reg_id:post_device_reg_ids, device_plat:post_device_type},
 				 crossDomain: true,
 				 success: function(data){		 
 					$('.error').remove();
@@ -222,13 +247,16 @@ function getDataProfile(){
 			var email = data.email;
 			var fname = data.given_name;
 			var lname = data.family_name;
+			
+			var post_device_reg_ids = $('#device_reg_id').val();
+			var post_device_type = $('#device_type').val();
 		  
 			var action_url = siteurl + 'account.php?pageacct=glogin';	
 			$.ajax({
 			 type: 'POST',
 			 url: action_url,
 			 dataType: 'json',
-			 data: {email:email, fname:fname, lname:lname},
+			 data: {email:email, fname:fname, lname:lname, device_reg_id:post_device_reg_ids, device_plat:post_device_type},
 			 crossDomain: true,
 			 success: function(data){				
 				//$('#loader').hide();				 

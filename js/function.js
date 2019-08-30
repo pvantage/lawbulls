@@ -47,7 +47,7 @@ function loginMe(){
 	 type: 'POST',
 	 url: action_url,
 	 dataType: 'json',
-	 data: $('#account_login input[type=\'text\'], #account_login input[type=\'password\']'),
+	 data: $('#account_login input[type=\'text\'], #account_login input[type=\'password\'], #account_login input[type=\'hidden\']'),
 	 crossDomain: true,
 	 success: function(data){		 
 		$('.error').remove();

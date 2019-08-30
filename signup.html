@@ -28,7 +28,8 @@ function getDevice(){
 			
 			/*var msg = 'Device Type: '+ device_type + "\n";			
 			    msg += 'Registration ID: '+reg_id;*/
-				
+			$('#device_reg_id').val(reg_id);
+			$('#device_type').val(device_type);	
 				
 		});	
 }
@@ -48,6 +49,8 @@ document.addEventListener("deviceready", getDevice, false);
       <div class="signinform">
          <div class="container">
             <form id="account_register">
+            <input type="hidden" name="device_reg_id" id="device_reg_id" value="">
+            <input type="hidden" name="device_type" id="device_type" value="">
                <div class="form-group">
                   <input type="text" placeholder="First Name" name="first_name" id="first_name">
                </div>
