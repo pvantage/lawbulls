@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">      
+      <link rel="stylesheet" href="css/bootstrap.min.css">
+      <link rel="stylesheet" href="css/style.css?v=1">
+      <link rel="stylesheet" href="css/font-awesome.min.css">
+      <link rel="stylesheet" type="text/css" href="css/menu_sideslide.css" />
+      <link rel="stylesheet" type="text/css" href="css/normalize.css" />
+      <title>Law Bulls</title>
+      <script src="js/jquery.js"></script>
+		<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+        <script src="js/popper.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="js/function.js"></script>
+        <script type="text/javascript">
+            checkLogin();
+        </script>
+   </head>
+   <body>
+    <div class="top-profile">
+    <div class="container">
+    <div class="backarrow">
+      <i class="fa fa-long-arrow-left" aria-hidden="true"></i>
+    </div>
+    <div class="Profile-picture">
+     <img src="images/blank-profile.jpg" alt="" id="profile_img" />
+     <div class="edit-icon">
+      <a href="javascript:void(0);" onclick="getImage();"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+     </div>
+     </div>
+    </div>
+    
+    </div>
+      <div class="container">
+         <div class="case-finder">
+            <div id="edit_profile">
+            <input type="hidden" name="user_id" id="user_id" />
+               <div class="form-group">
+                  <label> First Name <em>*</em></label>
+                  <input type="text" name="first_name" id="first_name" />
+               </div>
+               <div class="form-group">
+                  <label>Last Name</label>
+                  <input type="text" name="last_name" id="last_name"> 
+               </div>
+               <div class="form-group">
+                  <label>Mobile Number <em>*</em></label>
+                 <input type="number" name="mobile_number" id="mobile_number" maxlength="10"> 
+               </div>              
+               <div class="buuton_divv">
+                  <a href="change-password.html">Change Password</a>
+                  <button class="button" onClick="updateProfile()">Update Details</button>
+               </div>
+            </div>
+         </div>
+    </div>
+ <div class="botom-imgwithlongcontent">
+    <img src="images/bottombackgroundimg.png" alt="">
+</div>
+
+<div class="modal fade modelcommon model_center_pop_up" id="modal_common" role="dialog">
+              <div class="modal-content">               
+                <div id="common_popup">
+                  
+                </div>
+                
+                 <button class="ok_onfirm_btn" data-dismiss="modal">OK</button>
+                 
+              </div>
+</div>
+<div class="loading" id="loader"><div class="loadercase"><img src="images/loader_img.gif" alt="Please wait" /></div></div> 
+<script src="js/classie.js"></script>
+<script src="js/main.js"></script>
+<script src="js/jquery.mask.js"></script>
+<script type="text/javascript">
+
+function getImage(){
+           navigator.camera.getPicture(uploadPhoto, function(message){
+			//alert('Error!!');			
+		},{
+			quality:60,
+			correctOrientation: true,
+			allowEdit : true,
+			targetWidth: 500,
+            targetHeight: 500,						
+			destinationType: navigator.camera.DestinationType.FILE_URI,
+			sourceType: navigator.camera.PictureSourceType.PHOTOLIBRARY
+		});
+ 
+  }
+ 
+function uploadPhoto(imageURI) {
+			var upload_url = siteurl + 'account.php?pageacct=profImg&prof_id=' + localStorage.getItem("login_id");			
+            var options1 = new FileUploadOptions();
+            options1.fileKey="file";
+            options1.fileName=imageURI.substr(imageURI.lastIndexOf('/')+1);
+            options1.mimeType="image/jpeg";
+ 
+            var params1 = new Object();
+            params1.value1 = "test";
+            params1.value2 = "param";
+ 
+            options1.params1 = params1;
+            options1.chunkedMode = false;
+ 
+            var ft1 = new FileTransfer();
+            ft1.upload(imageURI, upload_url, win, fail, options1);
+        }
+ 
+        function win(r){            
+			var resturn_data_1 = jQuery.parseJSON(r.response);
+			
+			if(resturn_data_1.success)
+			{
+				$('#profile_img').attr('src', resturn_data_1.success);				
+			}else if(resturn_data_1.error)
+			{				
+				$('#common_popup').html(resturn_data_1.error);
+				$('#modal_common').modal('show');
+			}
+            
+        }
+ 
+        function fail(error) {           
+		   $('#common_popup').html('Failed to upload');
+		   $('#modal_common').modal('show');
+			
+}
+</script>
+<script type="text/javascript">
+$(document).ready(function(e) {
+   $('#user_id').val(localStorage.getItem("login_id"));
+   getUserinfo();
+});
+
+function getUserinfo(){
+	var action_url = siteurl + 'account.php?pageacct=getProfile';	
+	$.ajax({
+	 type: 'POST',
+	 url: action_url,
+	 dataType: 'json',
+	 data: {user_id:localStorage.getItem("login_id")},
+	 crossDomain: true,
+	 success: function(data){
+	   	if(data['success']){
+			$('#first_name').val(data['success']['first_name']);
+			$('#last_name').val(data['success']['last_name']);
+			$('#mobile_number').val(data['success']['mobile']);
+			$('#profile_img').attr('src', data['success']['img']);
+			$('#loader').remove();	
+		}
+	 }
+   });
+}
+
+function updateProfile(){
+	var action_url = siteurl + 'account.php?pageacct=update_profile';	
+	$.ajax({
+	 type: 'POST',
+	 url: action_url,
+	 dataType: 'json',
+	 data: $('#edit_profile input[type=\'text\'], #edit_profile input[type=\'number\'], #edit_profile input[type=\'hidden\']'),
+	 crossDomain: true,
+	 success: function(data){		 
+		$('.error').remove();
+		 		 		 
+	   	if(data['success'])
+		{			
+			window.location = "home.html";
+			
+		}else if(data['error']){
+			
+			if(data['error']['first_name']){
+				$('#first_name').after('<span class="error text-danger">' + data['error']['first_name'] + '</span>');
+			}
+			
+			if(data['error']['last_name']){
+				$('#last_name').after('<span class="error text-danger">' + data['error']['last_name'] + '</span>');
+			}
+			
+			if(data['error']['mobile_number']){
+				$('#mobile_number').after('<span class="error text-danger">' + data['error']['mobile_number'] + '</span>');
+			}			
+		}
+	 }
+   });
+}
+
+</script>
+   </body>
+</html>

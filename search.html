@@ -30,8 +30,9 @@
                </div>
                <div class="menu-wrap">
                   <div class="profile-info">
-                     <img src="images/FakeDP.jpeg" alt="" />
+                     <img src="images/blank-profile.jpg" alt="" />
                      <span class="username"></span>
+                     <span class="profile-edit-arrow"><a href="edit-profie.html"><i class="fa fa-pencil" aria-hidden="true"></i></a></span>
                   </div>
                   <nav class="menu">
                      <div class="icon-list">   
@@ -118,7 +119,8 @@
 <script src="js/aos.js"></script>
 <script>
 getLoginname();
-  AOS.init();
+getProfileimg();
+AOS.init();
   
  $('#search_post').keypress(function (e) {
  var key = e.which;

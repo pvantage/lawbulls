@@ -318,3 +318,18 @@ $(function(){
 function getLoginname(){	
 		$('.username').html(localStorage.getItem("disp_name"));	
 }
+
+function getProfileimg(){	
+	$.ajax({
+	 type: 'POST',
+	 url: action_url+'account.php?pageacct=getImg',
+	 dataType: 'json',
+	 data: {user_id:localStorage.getItem("login_id")},
+	 crossDomain: true,
+	 success: function(data){  
+	  	if(data['img']){
+			$('#profile_img').attr('src', data['img']);			
+		}
+	 }
+   });
+}

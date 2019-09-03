@@ -127,6 +127,38 @@ body {background:#3c3c3c;
  
  .container {
     max-width: 767px; 
+ }
+ 
+.Profile-picture {
+    text-align: center;
+    position: relative;
+}
+.backarrow {
+    padding: 20px 0;
+}
+.backarrow i {
+    color: #fff;
+    font-size: 20px;
+}
+.Profile-picture img {
+    width: 150px;
+}
+.buuton_divv a {
+    background: #558066;
+    border: 1px solid #558066;
+    color: #fff;
+    font-size: 16px;
+    padding: 8px 10px;     display: inline-block;
+}
+.edit-icon {
+    position: absolute;
+    top: 6px;
+    left: 57%;     cursor: pointer;
+}
+span.profile-edit-arrow {
+    float: right;
+    color: #fff;
+    margin-top: 25px;
 }
 .botom-content {
     position: absolute;
@@ -311,6 +343,7 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active:focus {
     background: rgba(60, 60, 60, 0.8);
     z-index: -1;
 }
+
 input:focus {outline:none;}
 body .focus-input {
     box-shadow: -1px -1px 21px rgba(0, 0, 0, 0.5);
@@ -872,13 +905,14 @@ span.casepro {
 }
 .order-status {
     background: #2b2b2b;
-    width: 150px;
-    height: 150px;
-    vertical-align: middle; 
+    width: 25%;
+    height: 105px;
+    vertical-align: middle;
     text-align: center;
     margin-top: 25px;
     font-weight: bold;
     display: table;
+    float: left;
 }
 .order-listing {
     border-bottom: 1px solid #292929;
@@ -1087,11 +1121,12 @@ a:focus, a:hover{text-decoration:none; box-shadow:none;}
 }
 .feedbackbtn {text-align:right;}
 .order-query {
-    width: 76%;
+    width: 70%;
     /* padding-left: 203px; */
     color: #fff;
     font-size: 14px;
-    padding: 0px 0 0 15px;
+    padding: 0;
+    float: right;
 }
 .ordertimer {
     clear: both;
@@ -1104,10 +1139,10 @@ a:focus, a:hover{text-decoration:none; box-shadow:none;}
     display: block;
     padding-top: 3px;
 }
-.placeorderdiv {
+/*.placeorderdiv {
     display: flex;     align-items: flex-start;
     justify-content: space-between;
-}
+}*/
 .category-listing .carousel .carousel-item{
   width:100%;
 }
@@ -1208,7 +1243,7 @@ a:focus, a:hover{text-decoration:none; box-shadow:none;}
     width: 73%;
 }
 .order-status h5 {
-    font-size: 18px;
+    font-size: 14px;
 }
 .order-status span {
     font-size: 15px;
@@ -1219,6 +1254,11 @@ a:focus, a:hover{text-decoration:none; box-shadow:none;}
 .search-list li {
     padding: 0 2px 0 0;
 }
+.order-query {
+    width: 67%;
+}
+.order-status {
+   height: 88px;}
 	}
 
 @media (max-width:320px) {
