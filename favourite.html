@@ -31,7 +31,7 @@
                
                <div class="menu-wrap">
                   <div class="profile-info">
-                     <img src="images/blank-profile.jpg" alt="" />
+                     <img src="images/blank-profile.jpg" alt="" id="profile_img" />
                      <span class="username"></span>
                      <span class="profile-edit-arrow"><a href="edit-profie.html"><i class="fa fa-pencil" aria-hidden="true"></i></a></span>
                   </div>
@@ -79,9 +79,10 @@
 <script src="js/main.js"></script>
 <script src="js/aos.js"></script>  
 <script type="text/javascript">
+getProfileimg();
 getLoginname();
 my_favorite();
-getProfileimg();
+
 AOS.init();
 
 localStorage.removeItem('pdate');

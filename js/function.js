@@ -319,7 +319,8 @@ function getLoginname(){
 		$('.username').html(localStorage.getItem("disp_name"));	
 }
 
-function getProfileimg(){	
+function getProfileimg(){
+	var action_url = siteurl;	
 	$.ajax({
 	 type: 'POST',
 	 url: action_url+'account.php?pageacct=getImg',

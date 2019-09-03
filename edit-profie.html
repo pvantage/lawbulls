@@ -114,8 +114,6 @@ function uploadPhoto(imageURI) {
 			
 			if(resturn_data_1.success)
 			{
-				alert(resturn_data_1.success);
-				
 				$('#profile_img').attr('src', resturn_data_1.success);				
 			}else if(resturn_data_1.error)
 			{				
@@ -169,8 +167,12 @@ function updateProfile(){
 		$('.error').remove();
 		 		 		 
 	   	if(data['success'])
-		{			
-			window.location = "home.html";
+		{	
+			localStorage.setItem('disp_name', data['success']['disp_name']);
+			
+			$('.modal_content').html('Profile updated successfully.');
+			$('#msgModal').modal('show');		
+			//window.location = "home.html";
 			
 		}else if(data['error']){
 			
