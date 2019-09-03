@@ -60,15 +60,15 @@
     <img src="images/bottombackgroundimg.png" alt="">
 </div>
 
-<div class="modal fade modelcommon model_center_pop_up" id="modal_common" role="dialog">
-              <div class="modal-content">               
-                <div id="common_popup">
-                  
-                </div>
-                
-                 <button class="ok_onfirm_btn" data-dismiss="modal">OK</button>
-                 
-              </div>
+<div class="modal fade" id="msgModal" role="dialog">
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>         
+        </div>
+        <div class="modal-body"><div class="modal_content"></div></div>        
+    </div>
+</div>
 </div>
 <div class="loading" id="loader"><div class="loadercase"><img src="images/loader_img.gif" alt="Please wait" /></div></div> 
 <script src="js/classie.js"></script>
@@ -126,8 +126,8 @@ function uploadPhoto(imageURI) {
         }
  
         function fail(error) {           
-		   $('#common_popup').html('Failed to upload');
-		   $('#modal_common').modal('show');
+		   $('.modal_content').html('Failed to upload');
+		   $('#msgModal').modal('show');
 			
 }
 </script>
