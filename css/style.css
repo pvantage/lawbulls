@@ -130,8 +130,9 @@ body {background:#3c3c3c;
  }
  
 .Profile-picture {
-    text-align: center;
-    position: relative;
+	text-align: center;
+	position: relative;
+	margin: 27px 0 0;
 }
 .backarrow {
     padding: 20px 0;
@@ -141,7 +142,10 @@ body {background:#3c3c3c;
     font-size: 20px;
 }
 .Profile-picture img {
-    width: 150px;
+    width: 150px; height: 150px;
+}
+.edit-icon a {
+	color: #000;
 }
 .buuton_divv a {
     background: #558066;
@@ -153,7 +157,7 @@ body {background:#3c3c3c;
 .edit-icon {
     position: absolute;
     top: 6px;
-    left: 57%;     cursor: pointer;
+    left: 64%;     cursor: pointer;
 }
 span.profile-edit-arrow {
     float: right;
@@ -788,6 +792,7 @@ ul.share_button {
 .profile-info img {
     width: 80px;
     border-radius: 50%;
+	height: 80px;
 }
 .profile-info .username {
     color: #fff;
