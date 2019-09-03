@@ -119,8 +119,8 @@ function uploadPhoto(imageURI) {
 				$('#profile_img').attr('src', resturn_data_1.success);				
 			}else if(resturn_data_1.error)
 			{				
-				$('#common_popup').html(resturn_data_1.error);
-				$('#modal_common').modal('show');
+				$('.modal_content').html(resturn_data_1.error);
+				$('#msgModal').modal('show');
 			}
             
         }
