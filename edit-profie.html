@@ -114,6 +114,8 @@ function uploadPhoto(imageURI) {
 			
 			if(resturn_data_1.success)
 			{
+				alert(resturn_data_1.success);
+				
 				$('#profile_img').attr('src', resturn_data_1.success);				
 			}else if(resturn_data_1.error)
 			{				
