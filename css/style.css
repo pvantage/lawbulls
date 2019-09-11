@@ -1234,6 +1234,18 @@ a:focus, a:hover{text-decoration:none; box-shadow:none;}
     padding: 15px;
     margin: 10px 0px;
 }
+.top-profile {
+    padding-top: 15px;
+}
+.backgroundbottom {
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-between;
+}
+.top-profile {
+    width: 100%;
+}
 @media (max-width:600px) {
 	.payment-sucess img {
     max-width: 190px;
@@ -1364,6 +1376,15 @@ feedbackscreen h6 {
     padding: 5px 0 20px;
 }
 #feedback_form .form-group {
+    margin-bottom: 10px;
+}
+.top-profile {
+    padding-top: 10px;
+}
+.Profile-picture img {
+    width: 100px;
+}
+.form-group {
     margin-bottom: 10px;
 }
 }
