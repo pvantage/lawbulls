@@ -132,7 +132,8 @@ $("#fbLogin").on('click', function(){
 		   // END
 		
 		}, function(error){				
-				$('.modal_content').html(error.errorMessage);                 
+				//$('.modal_content').html(error.errorMessage);
+				$('.modal_content').html('Sorry, something is wrong.');                 
                 $('#msgModal').modal('show');
 		});
 
