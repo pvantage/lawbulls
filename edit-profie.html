@@ -28,7 +28,7 @@
                </div>
                <div class="menu-wrap">
                   <div class="profile-info">
-                     <img src="images/blank-profile.jpeg" alt="" id="profile_img"/>
+                     <img src="images/blank-profile.jpg" alt="" id="profile_img"/>
                      <span class="username"></span>
                       <span class="profile-edit-arrow"><a href="edit-profie.html"><i class="fa fa-pencil" aria-hidden="true"></i></a></span>
                   </div>
@@ -201,7 +201,10 @@ function getUserinfo(){
 			$('#first_name').val(data['success']['first_name']);
 			$('#last_name').val(data['success']['last_name']);
 			$('#mobile_number').val(data['success']['mobile']);
-			$('#upload_profile_img').attr('src', data['success']['img']);
+			
+			if(data['success']['img']){
+			  $('#upload_profile_img').attr('src', data['success']['img']);
+			}
 			$('#loader').remove();	
 		}
 	 }
