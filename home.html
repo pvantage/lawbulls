@@ -71,14 +71,11 @@
     </div>
     
     
-    <div class="category-listing">
-        <div class="swiper-pagination" style="position:relative; bottom:0px;"></div>
+    <div class="category-listing" id="show_post_list">
         
         
-        <div class="swiper-container">
-
-            <div class="swiper-wrapper" id="swiper_post_data"></div>
-        </div>
+        
+        
 </div>
 
 <div id="show_fav_message" style="display:none;"></div>
@@ -108,15 +105,18 @@
 			 crossDomain: true,
 			 success: function(data){			 	 		 		 
 					
-			$('#swiper_post_data').html(data['content']);
+			$('#show_post_list').html(data['content']);
 			
 			localStorage.setItem('home_content', data['content']);
-			localStorage.setItem('home_category', data['category']);
+			//localStorage.setItem('home_category', data['category']);
 			
-			var menu = data['category'];
+			/*var menu = data['category'];
 						
             var mySwiper = new Swiper('.swiper-container', {
-            autoHeight: true,			
+            autoHeight: true,
+			slidesPerView: 1,
+			slidesPerGroup: 1,
+			centeredSlides: true,			
             pagination: {
                 el: '.swiper-pagination',
                 clickable: true,
@@ -125,7 +125,28 @@
                 },
             },
 
-        });
+        });*/
+		
+			var galleryThumbs = new Swiper('.gallery-thumbs', {
+           spaceBetween: 20,
+           slidesPerView: 3,
+           freeMode: true,
+           watchSlidesVisibility: true,
+           watchSlidesProgress: true,
+         });
+         var galleryTop = new Swiper('.gallery-top', {
+           spaceBetween: 10,
+           navigation: {
+             nextEl: '.swiper-button-next',
+             prevEl: '.swiper-button-prev',
+           },
+           thumbs: {
+             swiper: galleryThumbs
+           }
+         });
+		
+		
+		
 			AOS.init();
 			$('#loader').remove();
 		}
@@ -140,7 +161,9 @@
 			var menu = localStorage.getItem("home_category");
 							
 				var mySwiper = new Swiper('.swiper-container', {
-				autoHeight: true,			
+				autoHeight: true,
+				slidesPerView: 1,
+				centeredSlides: true,			
 				pagination: {
 					el: '.swiper-pagination',
 					clickable: true,
