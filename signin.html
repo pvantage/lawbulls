@@ -142,7 +142,7 @@ $("#fbLogin").on('click', function(){
 
         facebookConnectPlugin.login(["public_profile"], fbLoginSuccess,
             function loginError (error){										
-				$('.modal_content').html(error.errorMessage);                 
+				$('.modal_content').html('Sorry, something is wrong.');                 
                 $('#msgModal').modal('show');
             }
         );
