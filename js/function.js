@@ -1,4 +1,4 @@
-var siteurl = 'http://vantageappspro.com/lawbulls/site/appapi/';
+var siteurl = 'http://lawbulls.in/app/appapi/';
 
 function gup(sParam){
   var sPageURL = decodeURIComponent(window.location.search.substring(1)),
